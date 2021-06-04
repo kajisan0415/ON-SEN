@@ -271,10 +271,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-<<<<<<< HEAD
-  enum_help
-=======
->>>>>>> origin/main
+
   font-awesome-sass (~> 5.13)
   jbuilder (~> 2.5)
   jp_prefecture

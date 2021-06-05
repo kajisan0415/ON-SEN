@@ -1,0 +1,15 @@
+<h1>詳細</h1>
+<h2><%= @article.name %></h2>
+  <% if @article.stamped_by?(current_user) %>
+    <p>
+      <%= link_to article_stamps_path(@article), method: :delete do %>
+        ○<%= @article.stamps.count %> スタンプ
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to article_stamps_path(@article), method: :post do %>
+        ✖️<%= @article.stamps.count %> スタンプ
+      <% end %>
+    </p>
+  <% end %>

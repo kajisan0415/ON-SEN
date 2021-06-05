@@ -16,6 +16,7 @@ devise_for :admin, :controllers => {
   scope module: :public do
     resources :articles do
       resource :favorites, only: [:create, :destroy]
+      resource :stamps, only: [:create, :destroy]
     end
   end
 

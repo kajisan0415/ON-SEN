@@ -1,0 +1,12 @@
+<h1>編集</h1>
+<%= form_with model: @article,url: article_path,local: true do |f| %>
+  <table>
+    <tr class="field">
+      <label for="name">名前</label>
+      <%= f.text_field :name, autofocus: true, class: "name" %>
+    </tr>
+    <tr class="actions">
+      <%= f.submit "更新" ,class: 'btn btn-sm btn-success' %>
+    </tr>
+  </table>
+<% end %>

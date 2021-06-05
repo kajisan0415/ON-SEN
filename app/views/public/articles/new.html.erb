@@ -1,4 +1,17 @@
 <h1>新規投稿</h1>
+<p id="notice"></p>
+  <% if @article.errors.any? %>
+  <div id="error_explanation">
+   <ul>
+    <%= @article.errors.count %>errors prohibited this book from being saved:
+     <% @article.errors.full_messages.each do |message| %>
+      <li>
+       <%= message %>
+      </li>
+     <% end %>
+    <% end %>
+   </ul>
+  </div>
 <%= form_with model: @article,url: articles_path,local: true do |f| %>
   <table>
     <tr class="field">

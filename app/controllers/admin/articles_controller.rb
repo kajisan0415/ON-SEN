@@ -14,6 +14,7 @@ class Admin::ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    @article.user_id = current_user.id
     if @article.save
       redirect_to article_path(@article), notice: "You have created book successfully."
     else
@@ -27,6 +28,7 @@ class Admin::ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
+    @article.user_id = current_user.id
     if @article.update(article_params)
       redirect_to article_path(@article), notice: "You have updated book successfully."
     else

@@ -14,7 +14,9 @@ devise_for :admin, :controllers => {
   end
 
   scope module: :public do
-    resources :articles
+    resources :articles do
+      resource :favorites, only: [:create, :destroy]
+    end
   end
 
   root to: "public/homes#top"

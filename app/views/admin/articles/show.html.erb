@@ -1,5 +1,18 @@
 <h1>詳細（管理者側）</h1>
-<h2><%= @article.name %></h2>
+<div>
+  <%= attachment_image_tag @article, :image,:fill, 100, 100 %>
+</div>
+
+<%= @article.name %>
+<%= @article.prefecture_name %>
+<%= @article.address_city %>
+<%= @article.address_street %>
+<%= @article.address_building %>
+<%= @article.site_url %>
+<%= @article.tax %>
+<%= @article.opening_hours %>
+<%= @article.closed %>
+<%= @article.introduction %>
 <p>
   <%= link_to 'Edit', edit_admin_article_path(@article) %>
 </p>

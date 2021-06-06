@@ -30,7 +30,7 @@ class Admin::ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.user_id = current_admin.id
     if @article.update(article_params)
-      redirect_to article_path(@article), notice: "You have updated book successfully."
+      redirect_to admin_article_path(@article), notice: "You have updated book successfully."
     else
       render "edit"
     end
@@ -45,7 +45,18 @@ class Admin::ArticlesController < ApplicationController
 private
 
   def article_params
-    params.require(:article).permit(:name)
+    params.require(:article).permit(:name,
+    :image_id,
+    :prefecture_code,
+    :address_city,
+    :address_street,
+    :address_building,
+    :site_url,
+    :tax,
+    :opening_hours,
+    :closed,
+    :introduction
+    )
   end
 
 

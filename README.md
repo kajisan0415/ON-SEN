@@ -28,7 +28,7 @@
 #### <ER図>
 https://app.diagrams.net/#G1ngqOPSQvTQ76f-J2AZzQIOquz2Bxrns-
 #### <テーブル定義書>
-[database_design (ポートフォリオ).pdf](https://github.com/kajisan0415/ON-SEN/files/6575154/database_design.pdf)
+[database_design (ポートフォリオ2).pdf](https://github.com/kajisan0415/ON-SEN/files/6603705/database_design.2.pdf)
 #### <アプリケーション詳細設計>
 [application_design (ポートフォリオ2).pdf](https://github.com/kajisan0415/ON-SEN/files/6603703/application_design.2.pdf)
 

@@ -1,2 +1,30 @@
-<h1>詳細</h1>
+<h1>詳細（管理者側）</h1>
 <h2><%= @article.name %></h2>
+<%= attachment_image_tag(@article, :image, :fill, 300, 300) %>
+<%= @article.prefecture_name %>
+<%= @article.address_city %>
+<%= @article.address_street %>
+<%= @article.address_building %>
+<%= @article.site_url %>
+<%= @article.tax %>
+<%= @article.opening_hours %>
+<%= @article.closed %>
+<%= @article.introduction %>
+<p>
+  <%= link_to 'Edit', edit_admin_article_path(@article) %>
+</p>
+<p>
+  <%= link_to 'Destroy', admin_article_path(@article), method: :delete, data: { confirm: '本当に消しますか？' } %>
+</p>
+
+<div class="comments">
+<p>コメント件数：<%= @article.comments.count %></p>
+  <% @article.comments.each do |comment| %>
+    <%= comment.user.name %>
+    <%= comment.created_at.strftime('%Y/%m/%d') %>
+    <%= comment.body %>
+    <div class="comment-delete">
+      <%= link_to "削除", article_comment_path(comment.article, comment), method: :delete %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,9 @@
+<h2>記録</h2>
+<% @blogs.each do |blog| %>
+<p><%= blog.title %></p>
+<p><%= blog.created_at %></p>
+<p>
+  <%= link_to 'Show', blog_path(blog) %>
+</p>
+<% end %>
+<p><%= link_to '新規登録', new_blog_path %></p>

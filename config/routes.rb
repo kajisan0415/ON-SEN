@@ -14,7 +14,10 @@ devise_for :admin, :controllers => {
   end
 
   scope module: :public do
-    resources :articles do
+    resources :blogs
+    resources :users,only: [:show,:edit,:update]
+    resources :articles,only: [:index, :edit, :update, :destroy, :show] do
+      resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
       resource :stamps, only: [:create, :destroy]
     end

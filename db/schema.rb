@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_05_113057) do
+ActiveRecord::Schema.define(version: 2021_06_07_073330) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -31,6 +31,39 @@ ActiveRecord::Schema.define(version: 2021_06_05_113057) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "admin_id"
+    t.integer "prefecture_code"
+    t.string "address_city"
+    t.string "address_street"
+    t.string "address_building"
+    t.string "site_url"
+    t.text "tax"
+    t.string "opening_hours"
+    t.string "closed"
+    t.string "time"
+    t.text "introduction"
+    t.boolean "is_valid"
+  end
+
+  create_table "blogs", force: :cascade do |t|
+    t.text "body"
+    t.integer "user_id"
+    t.string "image_id"
+    t.string "title"
+    t.text "memo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.integer "user_id"
+    t.integer "article_id"
+    t.string "image_id"
+    t.string "title"
+    t.float "rate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -56,6 +89,8 @@ ActiveRecord::Schema.define(version: 2021_06_05_113057) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "introduction"
+    t.string "profile_image_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

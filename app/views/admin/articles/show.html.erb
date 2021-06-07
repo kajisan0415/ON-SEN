@@ -1,9 +1,6 @@
 <h1>詳細（管理者側）</h1>
-<div>
-  <%= attachment_image_tag @article, :image,:fill, 100, 100 %>
-</div>
-
-<%= @article.name %>
+<h2><%= @article.name %></h2>
+<%= attachment_image_tag(@article, :image, :fill, 300, 300) %>
 <%= @article.prefecture_name %>
 <%= @article.address_city %>
 <%= @article.address_street %>

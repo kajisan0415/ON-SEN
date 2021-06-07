@@ -9,20 +9,6 @@ class Public::ArticlesController < ApplicationController
     @comment = Comment.new
   end
 
-  def new
-    @article = Article.new
-  end
-
-  def create
-    @article = Article.new(article_params)
-    @article.user_id = current_user.id
-    if @article.save
-      redirect_to article_path(@article), notice: "You have created book successfully."
-    else
-      render :new and return
-    end
-  end
-
   def edit
     @article = Article.find(params[:id])
   end
@@ -47,7 +33,7 @@ private
 
   def article_params
     params.require(:article).permit(:name,
-    :image_id,
+    :image,
     :prefecture_code,
     :address_city,
     :address_street,

@@ -1,0 +1,13 @@
+<h2>Results index</h2>
+
+<table class="table table-hover table-inverse">
+    <tbody>
+      <% @articles.each do |article| %>
+        <tr>
+          <td><%= article.name %></td>
+          <td><%= article.introduction %></td>
+          <%= attachment_image_tag(@article, :image, :fill, 100, 100) %>
+        </tr>
+      <% end %>
+    </tbody>
+</table>

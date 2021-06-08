@@ -22,12 +22,12 @@
         <p><%= f.label :名前 %>
         <%= f.text_field :name, autofocus: true, class: "name" %></p>
     </div>
-    
+
     <div class="form-group">
         <p><%= f.label :都道府県名 %>
-        <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '選択してください' }, class: 'prefecture_name' %></p>
+        <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name, { prompt: '選択してください' }, class: 'prefecture_name' %></p>
     </div>
-    
+
     <div class="form-group">
         <p><%= f.label :市町村名 %>
         <%= f.text_field :address_city, autocomplete: 'address_city', class: 'address_city' %></p>

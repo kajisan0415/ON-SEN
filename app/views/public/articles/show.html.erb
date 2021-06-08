@@ -2,6 +2,7 @@
 <h2><%= @article.name %></h2>
 <%= attachment_image_tag(@article, :image, :fill, 300, 300) %>
 <%= @article.prefecture_name %>
+<%= @article.prefecture_code %>
 <%= @article.address_city %>
 <%= @article.address_street %>
 <%= @article.address_building %>
@@ -14,13 +15,13 @@
   <% if @article.stamped_by?(current_user) %>
     <p>
       <%= link_to article_stamps_path(@article), method: :delete do %>
-        ○
+        ★
       <% end %>
     </p>
     <% else %>
     <p>
       <%= link_to article_stamps_path(@article), method: :post do %>
-        ✖
+        ☆
       <% end %>
     </p>
   <% end %>
@@ -41,7 +42,7 @@
 
 
   <%= link_to 'Edit', edit_article_path(@article) %>
- 
+
 
 <div class="comments">
 <p>コメント件数：<%= @article.comments.count %></p>

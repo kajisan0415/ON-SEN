@@ -1,0 +1,11 @@
+<h2>行きたいランキング</h2>
+<% @all_ranks.each do |article| %>
+  <%= attachment_image_tag(article, :image, :fill, 300, 300) %>
+  <p><%= article.name %></p>
+<% end %>
+
+<h2>スタンプランキング</h2>
+<% @stamp_ranks.each do |article| %>
+  <%= attachment_image_tag(article, :image, :fill, 300, 300) %>
+  <p><%= article.name %></p>
+<% end %>

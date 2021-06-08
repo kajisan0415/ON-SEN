@@ -29,6 +29,17 @@ class Public::ArticlesController < ApplicationController
     redirect_to articles_path
   end
 
+  def search
+  @articles = Article.search(params[:keyword])
+  @keyword = params[:keyword]
+  render "search"
+  end
+  
+  def ranking
+    @all_ranks = Article.find(Favorite.group(:article_id).order('count(article_id) desc').limit(3).pluck(:article_id))
+    @stamp_ranks = Article.find(Stamp.group(:article_id).order('count(article_id) desc').limit(3).pluck(:article_id))
+  end
+
 private
 
   def article_params

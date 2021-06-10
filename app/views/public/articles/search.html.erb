@@ -6,7 +6,7 @@
         <tr>
           <td><%= article.name %></td>
           <td><%= article.introduction %></td>
-          <%= attachment_image_tag(@article, :image, :fill, 100, 100) %>
+          <%= attachment_image_tag(article, :image, :fill, 100, 100) %>
         </tr>
       <% end %>
     </tbody>

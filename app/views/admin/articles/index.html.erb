@@ -3,6 +3,9 @@
 <%= attachment_image_tag(article, :image, :fill, 300, 300) %>
 <p><%= article.name %></p>
 <p>
+  <%= link_to 'Show', admin_article_path(article) %>
+</p>
+<p>
   <%= link_to 'Edit', edit_admin_article_path(article) %>
 </p>
 <p>

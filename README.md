@@ -15,7 +15,6 @@
 それで自分が勧めた温泉に行ってくれて、「教えてもらったところ行ったけどよかった！」といってもらえて、とても嬉しかった経験があります。<br>
 なので、そういった経験をもっと色んな人にも体感してもらいたい、自分のおすすめの温泉を色んな人に知ってもらいたいという思いからこのアプリケーションを開発しました。<br>
 また、自分が知らない温泉、他の人のおすすめの温泉をもっと知りたいと思ったのも理由の一つです。
-ああ
 
 ### ターゲットユーザ
 
@@ -27,7 +26,7 @@
 
 ## 設計書
 #### <ER図>
-https://app.diagrams.net/#G1ngqOPSQvTQ76f-J2AZzQIOquz2Bxrns-
+https://drive.google.com/file/d/1ngqOPSQvTQ76f-J2AZzQIOquz2Bxrns-/view?usp=sharing
 #### <テーブル定義書>
 [database_design (ポートフォリオ2).pdf](https://github.com/kajisan0415/ON-SEN/files/6603705/database_design.2.pdf)
 #### <アプリケーション詳細設計>

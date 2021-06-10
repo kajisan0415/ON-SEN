@@ -16,8 +16,10 @@
 </p>
 <p>
   <%= link_to 'Destroy', admin_article_path(@article), method: :delete, data: { confirm: '本当に消しますか？' } %>
-</p>いいね数<%= @article.favorites.count %></p>
-</p>スタンプ数<%= @article.stamps.count %></p>
+</p>
+
+<p>いいね数<%= @article.favorites.count %></p>
+<p>スタンプ数<%= @article.stamps.count %></p>
 
 <div class="comments">
 <p>コメント件数：<%= @article.comments.count %></p>

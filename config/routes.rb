@@ -27,7 +27,7 @@ devise_for :admin, :controllers => {
     end
     get "search" => "articles#search"
     get "ranking" => "articles#ranking"
-    get "mapping" => "article#mapping"
+    get "mapping" => "articles#mapping"
   end
 
   root to: "public/homes#top"

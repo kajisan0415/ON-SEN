@@ -1,5 +1,5 @@
 <% if article.favorited_by?(current_user) %>
-  <%= link_to article.favorites.count, article_favorites_path(article.id), method: :delete, remote: true, class: "fas fa-thumbs-up" %>
+  <%= link_to "行きたいリストからはずす", article_favorites_path(article.id), method: :delete, remote: true %>
 <% else %>
-  <%= link_to article.favorites.count, article_favorites_path(article.id), method: :post, remote: true, class: "far fa-thumbs-up" %>
+  <%= link_to "行きたいリストに追加", article_favorites_path(article.id), method: :post, remote: true, class: "far fa-thumbs-up" %>
 <% end %>

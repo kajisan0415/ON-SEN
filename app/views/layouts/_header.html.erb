@@ -1,7 +1,7 @@
+<header>
 <nav class="navbar-left">
-  <h1 class="logo"><%= link_to (image_tag 'news_img_20180509142529233.jpeg', :size =>'270x100'),root_path %></h1>
+  <div class="logo"><%= link_to (image_tag 'My Post (10).png'),root_path, class: "logo-img" %></div>
 </nav>
-
 <nav class="navbar-right">
     <% if user_signed_in? %>
       <li><%= link_to 'マップ検索', mapping_path, class:"nav-list-item" %></li>
@@ -22,3 +22,4 @@
       <li><%= link_to ' ログイン', new_user_session_path,class:"nav-list-item" %></li>
     <% end %>
   </nav>
+</header>

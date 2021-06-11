@@ -4,13 +4,17 @@
     <title>ONSen</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-　　　　<script src="https://kit.fontawesome.com/4a4fca51eb.js" crossorigin="anonymous"></script>
+　　<script src="https://kit.fontawesome.com/4a4fca51eb.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <header><%= render 'layouts/header' %></header>
-    <%= yield %>
+    <%= render 'layouts/header' %>
+      <% if current_page?(root_path) %>
+      <%= yield %>
+
+    <% else %>
+    <main><%= yield %></main>
+    <% end %>
   </body>
 </html>

@@ -1,53 +1,99 @@
-<h1>詳細</h1>
-<h2><%= @article.name %></h2>
-<%= attachment_image_tag(@article, :image, :fill, 300, 300) %>
-<%= @article.prefecture_name %>
-<%= @article.prefecture_code %>
-<%= @article.address_city %>
-<%= @article.address_street %>
-<%= @article.address_building %>
-<%= @article.site_url %>
-<%= @article.tax %>
-<%= @article.opening_hours %>
-<%= @article.closed %>
-<%= @article.introduction %>
-
-<p class="stamp-btn"><%= render "public/stamps/stamp-btn", article: @article %></p>
-<p class="favorite-btn"><%= render "public/favorites/favorite-btn", article: @article %></p>
-
-<%= link_to 'Edit', edit_article_path(@article) %>
-
-
-<p>コメント件数：<%= @article.comments.count %></p>
-
-<div class="comments">
-  <%= render 'public/comments/comment', article: @article,comment: @comment %>
-</div>
-
-<div class="new-comment">
- <h3>コメントフォーム</h3>
-<%= form_with(model:[@article, @comment], re: true) do |f| %>
-  <%= f.text_field :title, placeholder: "タイトル" %>
-  <%= f.text_area :body, placeholder: "コメントをここに" %>
-
-  <!-- 評価 -->
-  <div class="form-group row" id="star">
-    <%= f.label :rate,'評価 ', class:'col-md-3 col-form-label' %>
-    <%= f.hidden_field :rate, id: :review_star %>
+<div class="article-show">
+  <div class="article-show-top">
+    <h1 class="article-show-title"><%= @article.name %></h1>
+    <div id="star-rate-<%= @article.id %>">総合評価　</div>
+      <script>
+      $('#star-rate-<%= @article.id %>').raty({
+        size: 36,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        half: true,
+        readOnly: true,
+        score: <%= @article.comments.average(:rate).to_f.round(1) %>,
+      });
+      </script>
+        <% if user_signed_in? %>
+      <p class="favorite-btn"><%= render "public/favorites/favorite-btn", article: @article %></p>
+      <% end %>
   </div>
-  <!-- 評価javascript -->
-  <script>
-  $('#star').raty({
-    size     : 36,
-    starOff:  '<%= asset_path('star-off.png') %>',
-    starOn : '<%= asset_path('star-on.png') %>',
-    starHalf: '<%= asset_path('star-half.png') %>',
-    scoreName: 'comment[rate]',
-    half: true,
-  });
-  </script>
+  <div class="article-show-image">
+    <%= attachment_image_tag(@article, :image, :fill, 400, 400) %>
+    <div class="article-show-image-contents">
+      <% if user_signed_in? %>
+      <p class="stamp-btn"><%= render "public/stamps/stamp-btn", article: @article %></p>
+      <% end %>
+    </div>
+  </div>
 
-  <%= f.attachment_field :image, class: "article_image" %></p>
-  <%= f.submit "送信する" %>
-<% end %>
+  <table class="article-show-information">
+    <tr>
+      <td>住所</td>
+      <td>
+        <%= @article.prefecture_name %>
+        <%= @article.prefecture_code %>
+        <%= @article.address_city %>
+        <%= @article.address_street %>
+        <%= @article.address_building %>
+      </td>
+    </tr>
+    <tr>
+      <td>公式サイト</td>
+      <td><%= @article.site_url %></td>
+    </tr>
+    <tr>
+      <td>料金説明</td>
+      <td><%= @article.tax %></td>
+    </tr>
+    <tr>
+      <td>営業時間</td>
+      <td><%= @article.opening_hours %></td>
+    </tr>
+    <tr>
+      <td>定休日</td>
+      <td><%= @article.closed %></td>
+    </tr>
+    <tr>
+      <td>その他</td>
+      <td><%= @article.introduction %></td>
+    </tr>
+    <td></td>
+    <td><%= link_to '編集', edit_article_path(@article), class: "article-show-edit" %></td>
+  </table>
+  <div class="new-comment">
+   <h3>コメントフォーム</h3>
+  <%= form_with(model:[@article, @comment], re: true) do |f| %>
+    <div class="form-group">
+      <%= f.text_field :title, placeholder: "タイトル" %>
+    </div>
+    <div class="form-group">
+      <%= f.text_area :body, placeholder: "コメントをここに" %>
+    </div>
+    <!-- 評価 -->
+    <div class="form-group row" id="star">
+      <%= f.label :rate,'評価 ', class:'col-md-3 col-form-label' %>
+      <%= f.hidden_field :rate, id: :review_star %>
+    </div>
+    <!-- 評価javascript -->
+    <script>
+    $('#star').raty({
+      size     : 36,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      scoreName: 'comment[rate]',
+      half: true,
+    });
+    </script>
+    <div class="form-group">
+    <%= f.attachment_field :image, class: "article_image" %></p>
+    </div>
+    <%= f.submit "送信する", class: "form-group" %>
+  <% end %>
+
+  <p>コメント件数：<%= @article.comments.count %></p>
+  <div class="comments">
+    <%= render 'public/comments/comment', article: @article,comment: @comment %>
+  </div>
+
 </div>

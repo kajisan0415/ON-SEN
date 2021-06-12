@@ -1,0 +1,310 @@
+Started GET "/" for 126.130.221.252 at 2021-06-12 04:53:26 +0000
+Cannot render console from 126.130.221.252! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.6) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.6) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:22:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateInformaitions (20210603095522)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "informaitions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "image_id" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210603095522_create_informaitions.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210603095522"]]
+  ↳ bin/rails:9
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to ChangeInformationsToArticles (20210603110558)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "informaitions" RENAME TO "articles"[0m
+  ↳ db/migrate/20210603110558_change_informations_to_articles.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210603110558"]]
+  ↳ bin/rails:9
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateAdmins (20210604043540)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "admins" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210604043540_devise_create_admins.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admins_on_email" ON "admins" ("email")[0m
+  ↳ db/migrate/20210604043540_devise_create_admins.rb:40
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_admins_on_reset_password_token" ON "admins" ("reset_password_token")[0m
+  ↳ db/migrate/20210604043540_devise_create_admins.rb:41
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210604043540"]]
+  ↳ bin/rails:9
+  [1m[35m (15.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateUsers (20210604045723)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210604045723_devise_create_users.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20210604045723_devise_create_users.rb:39
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20210604045723_devise_create_users.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210604045723"]]
+  ↳ bin/rails:9
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateFavorites (20210605083727)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "article_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210605083727_create_favorites.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210605083727"]]
+  ↳ bin/rails:9
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddUserIdToArticles (20210605084320)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "articles" ADD "user_id" integer[0m
+  ↳ db/migrate/20210605084320_add_user_id_to_articles.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210605084320"]]
+  ↳ bin/rails:9
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateStamps (20210605113057)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "stamps" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "article_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210605113057_create_stamps.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210605113057"]]
+  ↳ bin/rails:9
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateComments (20210606031056)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "user_id" integer, "article_id" integer, "image_id" integer, "title" varchar, "rate" float, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210606031056_create_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210606031056"]]
+  ↳ bin/rails:9
+  [1m[35m (6.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddAdminIdToArticles (20210606054225)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "articles" ADD "admin_id" integer[0m
+  ↳ db/migrate/20210606054225_add_admin_id_to_articles.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210606054225"]]
+  ↳ bin/rails:9
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddColumnsToArticles (20210606075638)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "articles" ADD "prefecture_code" integer[0m
+  ↳ db/migrate/20210606075638_add_columns_to_articles.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "articles" ADD "address_city" varchar[0m
+  ↳ db/migrate/20210606075638_add_columns_to_articles.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "articles" ADD "address_street" varchar[0m
+  ↳ db/migrate/20210606075638_add_columns_to_articles.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "articles" ADD "address_buiding" varchar[0m
+  ↳ db/migrate/20210606075638_add_columns_to_articles.rb:6
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "articles" ADD "site_url" varchar[0m
+  ↳ db/migrate/20210606075638_add_columns_to_articles.rb:7
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "articles" ADD "tax" text[0m
+  ↳ db/migrate/20210606075638_add_columns_to_articles.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "articles" ADD "opening_hours" varchar[0m
+  ↳ db/migrate/20210606075638_add_columns_to_articles.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "articles" ADD "closed" varchar[0m
+  ↳ db/migrate/20210606075638_add_columns_to_articles.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "articles" ADD "time" varchar[0m
+  ↳ db/migrate/20210606075638_add_columns_to_articles.rb:11
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "articles" ADD "introduction" text[0m
+  ↳ db/migrate/20210606075638_add_columns_to_articles.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "articles" ADD "is_valid" boolean[0m
+  ↳ db/migrate/20210606075638_add_columns_to_articles.rb:13
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210606075638"]]
+  ↳ bin/rails:9
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to RenameAddressBuidingColumnToArticles (20210606124418)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aarticles" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "image_id" varchar DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer DEFAULT NULL, "admin_id" integer DEFAULT NULL, "prefecture_code" integer DEFAULT NULL, "address_city" varchar DEFAULT NULL, "address_street" varchar DEFAULT NULL, "address_building" varchar DEFAULT NULL, "site_url" varchar DEFAULT NULL, "tax" text DEFAULT NULL, "opening_hours" varchar DEFAULT NULL, "closed" varchar DEFAULT NULL, "time" varchar DEFAULT NULL, "introduction" text DEFAULT NULL, "is_valid" boolean DEFAULT NULL)[0m
+  ↳ db/migrate/20210606124418_rename_address_buiding_column_to_articles.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aarticles" ("id","name","image_id","created_at","updated_at","user_id","admin_id","prefecture_code","address_city","address_street","address_building","site_url","tax","opening_hours","closed","time","introduction","is_valid")
+                     SELECT "id","name","image_id","created_at","updated_at","user_id","admin_id","prefecture_code","address_city","address_street","address_buiding","site_url","tax","opening_hours","closed","time","introduction","is_valid" FROM "articles"[0m
+  ↳ db/migrate/20210606124418_rename_address_buiding_column_to_articles.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "articles"[0m
+  ↳ db/migrate/20210606124418_rename_address_buiding_column_to_articles.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "articles" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "image_id" varchar DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer DEFAULT NULL, "admin_id" integer DEFAULT NULL, "prefecture_code" integer DEFAULT NULL, "address_city" varchar DEFAULT NULL, "address_street" varchar DEFAULT NULL, "address_building" varchar DEFAULT NULL, "site_url" varchar DEFAULT NULL, "tax" text DEFAULT NULL, "opening_hours" varchar DEFAULT NULL, "closed" varchar DEFAULT NULL, "time" varchar DEFAULT NULL, "introduction" text DEFAULT NULL, "is_valid" boolean DEFAULT NULL)[0m
+  ↳ db/migrate/20210606124418_rename_address_buiding_column_to_articles.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "articles" ("id","name","image_id","created_at","updated_at","user_id","admin_id","prefecture_code","address_city","address_street","address_building","site_url","tax","opening_hours","closed","time","introduction","is_valid")
+                     SELECT "id","name","image_id","created_at","updated_at","user_id","admin_id","prefecture_code","address_city","address_street","address_building","site_url","tax","opening_hours","closed","time","introduction","is_valid" FROM "aarticles"[0m
+  ↳ db/migrate/20210606124418_rename_address_buiding_column_to_articles.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aarticles"[0m
+  ↳ db/migrate/20210606124418_rename_address_buiding_column_to_articles.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210606124418"]]
+  ↳ bin/rails:9
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddIntroductionToUsers (20210607062812)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "introduction" text[0m
+  ↳ db/migrate/20210607062812_add_introduction_to_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210607062812"]]
+  ↳ bin/rails:9
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddProfileImageIdToUsers (20210607064540)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "profile_image_id" varchar[0m
+  ↳ db/migrate/20210607064540_add_profile_image_id_to_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210607064540"]]
+  ↳ bin/rails:9
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to ChangeDatatypeImageIdOfComments (20210607065107)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acomments" ("id" integer NOT NULL PRIMARY KEY, "body" text DEFAULT NULL, "user_id" integer DEFAULT NULL, "article_id" integer DEFAULT NULL, "image_id" integer DEFAULT NULL, "title" varchar DEFAULT NULL, "rate" float DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210607065107_change_datatype_image_id_of_comments.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acomments" ("id","body","user_id","article_id","image_id","title","rate","created_at","updated_at")
+                     SELECT "id","body","user_id","article_id","image_id","title","rate","created_at","updated_at" FROM "comments"[0m
+  ↳ db/migrate/20210607065107_change_datatype_image_id_of_comments.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "comments"[0m
+  ↳ db/migrate/20210607065107_change_datatype_image_id_of_comments.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer NOT NULL PRIMARY KEY, "body" text DEFAULT NULL, "user_id" integer DEFAULT NULL, "article_id" integer DEFAULT NULL, "image_id" varchar DEFAULT NULL, "title" varchar DEFAULT NULL, "rate" float DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210607065107_change_datatype_image_id_of_comments.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "comments" ("id","body","user_id","article_id","image_id","title","rate","created_at","updated_at")
+                     SELECT "id","body","user_id","article_id","image_id","title","rate","created_at","updated_at" FROM "acomments"[0m
+  ↳ db/migrate/20210607065107_change_datatype_image_id_of_comments.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acomments"[0m
+  ↳ db/migrate/20210607065107_change_datatype_image_id_of_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210607065107"]]
+  ↳ bin/rails:9
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateBlogs (20210607073330)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "blogs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "user_id" integer, "image_id" varchar, "title" varchar, "memo" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20210607073330_create_blogs.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210607073330"]]
+  ↳ bin/rails:9
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to ChangeDatatypePrefectureCodeOfArticles (20210608061444)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aarticles" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "image_id" varchar DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer DEFAULT NULL, "admin_id" integer DEFAULT NULL, "prefecture_code" integer DEFAULT NULL, "address_city" varchar DEFAULT NULL, "address_street" varchar DEFAULT NULL, "address_building" varchar DEFAULT NULL, "site_url" varchar DEFAULT NULL, "tax" text DEFAULT NULL, "opening_hours" varchar DEFAULT NULL, "closed" varchar DEFAULT NULL, "time" varchar DEFAULT NULL, "introduction" text DEFAULT NULL, "is_valid" boolean DEFAULT NULL)[0m
+  ↳ db/migrate/20210608061444_change_datatype_prefecture_code_of_articles.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aarticles" ("id","name","image_id","created_at","updated_at","user_id","admin_id","prefecture_code","address_city","address_street","address_building","site_url","tax","opening_hours","closed","time","introduction","is_valid")
+                     SELECT "id","name","image_id","created_at","updated_at","user_id","admin_id","prefecture_code","address_city","address_street","address_building","site_url","tax","opening_hours","closed","time","introduction","is_valid" FROM "articles"[0m
+  ↳ db/migrate/20210608061444_change_datatype_prefecture_code_of_articles.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "articles"[0m
+  ↳ db/migrate/20210608061444_change_datatype_prefecture_code_of_articles.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "articles" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "image_id" varchar DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer DEFAULT NULL, "admin_id" integer DEFAULT NULL, "prefecture_code" varchar DEFAULT NULL, "address_city" varchar DEFAULT NULL, "address_street" varchar DEFAULT NULL, "address_building" varchar DEFAULT NULL, "site_url" varchar DEFAULT NULL, "tax" text DEFAULT NULL, "opening_hours" varchar DEFAULT NULL, "closed" varchar DEFAULT NULL, "time" varchar DEFAULT NULL, "introduction" text DEFAULT NULL, "is_valid" boolean DEFAULT NULL)[0m
+  ↳ db/migrate/20210608061444_change_datatype_prefecture_code_of_articles.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "articles" ("id","name","image_id","created_at","updated_at","user_id","admin_id","prefecture_code","address_city","address_street","address_building","site_url","tax","opening_hours","closed","time","introduction","is_valid")
+                     SELECT "id","name","image_id","created_at","updated_at","user_id","admin_id","prefecture_code","address_city","address_street","address_building","site_url","tax","opening_hours","closed","time","introduction","is_valid" FROM "aarticles"[0m
+  ↳ db/migrate/20210608061444_change_datatype_prefecture_code_of_articles.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aarticles"[0m
+  ↳ db/migrate/20210608061444_change_datatype_prefecture_code_of_articles.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210608061444"]]
+  ↳ bin/rails:9
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddStartTimeToBlogs (20210609101016)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "blogs" ADD "start_time" datetime[0m
+  ↳ db/migrate/20210609101016_add_start_time_to_blogs.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210609101016"]]
+  ↳ bin/rails:9
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-06-12 04:53:42.704664"], ["updated_at", "2021-06-12 04:53:42.704664"]]
+  ↳ bin/rails:9
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 126.130.221.252 at 2021-06-12 04:53:50 +0000
+Cannot render console from 126.130.221.252! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by Public::HomesController#top as HTML
+  Rendering public/homes/top.html.erb within layouts/application
+  Rendered public/homes/top.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (3.9ms)
+Completed 200 OK in 1043ms (Views: 1033.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 126.130.221.252 at 2021-06-12 04:53:53 +0000
+Cannot render console from 126.130.221.252! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Public::HomesController#top as HTML
+  Rendering public/homes/top.html.erb within layouts/application
+  Rendered public/homes/top.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (4.2ms)
+Completed 200 OK in 43ms (Views: 41.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 126.130.221.252 at 2021-06-12 04:53:55 +0000
+Cannot render console from 126.130.221.252! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Public::ArticlesController#index as HTML
+  Rendering public/articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/public/articles/index.html.erb:12
+  Rendered public/articles/index.html.erb within layouts/application (10.9ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+Completed 200 OK in 62ms (Views: 51.2ms | ActiveRecord: 0.6ms)
+
+

@@ -13,7 +13,8 @@
         score: <%= @article.comments.average(:rate).to_f.round(1) %>,
       });
       </script>
-        <% if user_signed_in? %>
+
+      <% if user_signed_in? %>
       <p class="favorite-btn"><%= render "public/favorites/favorite-btn", article: @article %></p>
       <% end %>
   </div>
@@ -85,7 +86,7 @@
       half: true,
     });
     </script>
-    
+
     <%= f.submit "送信する", class: "form-group" %>
   <% end %>
 

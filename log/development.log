@@ -1993,3 +1993,23 @@ Refile::App: [2021-06-12 05:10:11 +0000] GET "/d689b49606913792a963bc0f0bd3f8741
 
 Refile::App: [2021-06-12 05:10:11 +0000] GET "/54df0e9d78b674d8315b912b194e948c74eab313/store/fill/100/100/8abd92dd48d5e11f9c3cd4dcea3213f2623e89a781ce2d2be8577c156d1c/image" 200 1562.7ms
 
+Started GET "/" for 126.130.221.252 at 2021-06-12 13:58:21 +0000
+Cannot render console from 126.130.221.252! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by Public::HomesController#top as HTML
+  Rendering public/homes/top.html.erb within layouts/application
+  Rendered public/homes/top.html.erb within layouts/application (3.8ms)
+  Rendered layouts/_header.html.erb (4.4ms)
+Completed 200 OK in 2038ms (Views: 2020.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 126.130.221.252 at 2021-06-12 13:58:24 +0000
+Cannot render console from 126.130.221.252! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Public::HomesController#top as HTML
+  Rendering public/homes/top.html.erb within layouts/application
+  Rendered public/homes/top.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (17.8ms)
+Completed 200 OK in 83ms (Views: 81.8ms | ActiveRecord: 0.0ms)
+
+

@@ -25,7 +25,7 @@
 自分のおすすめの温泉の情報をシェアしたいとき、近くの温泉を探すとき、どこの温泉にいったか記録するとき
 
 ## 設計書
-#### <ER図>aaaa
+#### <ER図>
 https://drive.google.com/file/d/1ngqOPSQvTQ76f-J2AZzQIOquz2Bxrns-/view?usp=sharing
 #### <テーブル定義書>
 [database_design (ポートフォリオ2).pdf](https://github.com/kajisan0415/ON-SEN/files/6603705/database_design.2.pdf)

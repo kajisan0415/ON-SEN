@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_09_101016) do
+ActiveRecord::Schema.define(version: 2021_06_14_045158) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2021_06_09_101016) do
     t.string "time"
     t.text "introduction"
     t.boolean "is_valid"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "blogs", force: :cascade do |t|

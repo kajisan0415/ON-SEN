@@ -18,6 +18,32 @@
   <%= link_to 'Destroy', admin_article_path(@article), method: :delete, data: { confirm: '本当に消しますか？' } %>
 </p>
 
+<style>
+#map {
+  height: 500px;
+  width: 500px;
+}
+</style>
+
+<script>
+let map
+
+function initMap(){
+  geocoder = new google.maps.Geocoder()
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 40.7828, lng:-73.9653},
+    zoom: 12,
+  });
+
+  marker = new google.maps.Marker({
+    position:  {lat: 40.7828, lng:-73.9653},
+    map: map
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV["Google_Maps_API_Key"]%>&callback=initMap" async defer></script>
+
 <p>いいね数<%= @article.favorites.count %></p>
 <p>スタンプ数<%= @article.stamps.count %></p>
 

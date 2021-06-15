@@ -60,3 +60,18 @@
   color: gray;
 }
 
+.devise-container {
+    margin: 0 auto;
+    border: 2px solid #ACAAAA;
+    text-align: center;
+    padding-bottom: 30px;
+    border-radius: 2%;
+}
+
+.sign-up-title {
+    text-align: center
+}
+
+.log-in-title {
+    text-align: center
+}

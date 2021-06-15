@@ -1,39 +1,41 @@
 <div class="article-show">
   <div class="user-profile">
-  <div class="user-show-top">
-    <div class="user-show-top-left">
-      <%= attachment_image_tag(@user, :profile_image_id, :fill, 300, 300, fallback: "My Post (11).png", size:'300x300') %>
+    <div class="user-show-top">
+      <div class="user-show-top-left">
+        <%= attachment_image_tag(@user, :profile_image_id, :fill, 300, 300, fallback: "My Post (11).png", size:'300x300') %>
+      </div>
+      <div class="user-show-top-right">
+        <h1><%= @user.name %></h1>
+        <h2>温泉Lv.<%= @user.stamped_articles.count %></h2>
+        <% if @user.stamped_articles.count <= 10 %>
+        <h2>ランク：温泉ビギナー</h2>
+        <% elsif 10 < @user.stamped_articles.count <= 30 %>
+        <h2>ランク：温泉好き</h2>
+        <% elsif 30 < @user.stamped_articles.count <= 50 %>
+        <h2>ランク：温泉師匠</h2>
+        <% elsif 50 < @user.stamped_articles.count <= 100 %>
+        <h2>ランク：温泉マスター</h2>
+        <% elsif 100 < @user.stamped_articles.count %>
+        <h2>温泉ゴッド</h2>
+        <% end %>
+        <h3><%= link_to '温泉の記録', blogs_path %></h3>
+        <h3><%= link_to '行きたいリスト', favorites_users_path %></h3>
+        <% if @user.id == current_user.id %>
+        <p><%= link_to 'プロフィール編集', edit_user_path(@user) %></p>
+        <% end %>
+      </div>
     </div>
-    <div class="user-show-top-right">
-      <h1><%= @user.name %></h1>
-      <h2>温泉Lv.<%= @user.stamped_articles.count %></h2>
-      <% if @user.stamped_articles.count <= 10 %>
-      <h2>ランク：温泉ビギナー</h2>
-      <% elsif 10 < @user.stamped_articles.count <= 30 %>
-      <h2>ランク：温泉好き</h2>
-      <% elsif 30 < @user.stamped_articles.count <= 50 %>
-      <h2>ランク：温泉師匠</h2>
-      <% elsif 50 < @user.stamped_articles.count <= 100 %>
-      <h2>ランク：温泉マスター</h2>
-      <% elsif 100 < @user.stamped_articles.count %>
-      <h2>温泉ゴッド</h2>
+    <div class=user-show-introduction>
+       <p> <%= @user.introduction %></p>
+    </div>
+    <div class="user-stamp-container">
+      <% @user.stamped_articles.each do |article| %>
+        <div class="user-stamp-box">
+        <%= link_to article_path(article) do %>
+        <%= attachment_image_tag(article, :image, :fill, 100, 100) %>
+        <% end %>
+        </div>
       <% end %>
-      <p><%= link_to '温泉の記録', blogs_path %></p>
-      <p><%= @user.introduction %></p>
-
-  </div>
-</div>
-<div class="user-stamp-container">
-  <% @user.stamped_articles.each do |article| %>
-    <div class="user-stamp-box">
-    <%= link_to article_path(article) do %>
-    <%= attachment_image_tag(article, :image, :fill, 100, 100) %>
-    <% end %>
     </div>
-  <% end %>
-</div>
-<% if @user.id == current_user.id %>
-<%= link_to '行きたいリスト', favorites_users_path %>
-<% end %>
-</div>
+  </div>
 </div>

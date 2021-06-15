@@ -10,6 +10,7 @@
 	padding: 40px ;
 }
 img {
+	border-radius: 5%;
 	vertical-align: bottom;
 }
 a:hover img {
@@ -53,7 +54,7 @@ a:hover {
 	transition: 0.2s;
 }
 #japan-map div div.area div:hover {
-	opacity: 0.5;
+	background-color: red;
 	transition: 0.2s;
 }
 
@@ -80,7 +81,7 @@ a:hover {
 	left: 638px;
 }
 #hokkaido-touhoku div.area div {
-	background-color: #7478c2;
+	background-color: black;
 	color: #ffffff;
 }
 
@@ -138,7 +139,7 @@ a:hover {
 	z-index: 2;
 }
 #kantou div.area div {
-	background-color: #31beca;
+	background-color: black;
 	color: #ffffff;
 }
 #ibaraki {
@@ -194,7 +195,7 @@ a:hover {
 	top: 223px;
 }
 #tyubu div.area div {
-	background-color: #4ab969;
+	background-color: black;
 	color: #ffffff;
 }
 
@@ -260,7 +261,7 @@ a:hover {
 	top: 223px;
 }
 #kinki div.area div {
-	background-color: #b0b72f;
+	background-color: black;
 	color: #ffffff;
 }
 
@@ -315,7 +316,7 @@ a:hover {
 	top: 223px;
 }
 #tyugoku div.area div {
-	background-color: #ef9f27;
+	background-color: black;
 	color: #ffffff;
 }
 #tottori {
@@ -356,7 +357,7 @@ a:hover {
 	top: 350px;
 }
 #shikoku div.area div {
-	background-color: #d08f68;
+	background-color: black;
 	color: #ffffff;
 }
 #kagawa {
@@ -392,7 +393,7 @@ a:hover {
 	top: 235px;
 }
 #kyusyu div.area div {
-	background-color: #ff7575;
+	background-color: black;
 	color: #ffffff;
 }
 #fukuoka {

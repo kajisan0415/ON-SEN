@@ -11,7 +11,18 @@
   margin-left: 60px;
 }
 
+.user-show-introduction {
+  width: 90%;
+  height: 150px;
+  border: 2px solid #ACAAAA;
+  margin: 0 auto;
+}
+
 .user-stamp-container {
+  width: 90%;
   display: flex;
   flex-wrap: wrap;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
 }

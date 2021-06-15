@@ -1,28 +1,66 @@
+<div class="article-show">
+  <div class="article-show-top">
+    <h1 class="article-show-title"><%= @article.name %></h1>
+    <div id="star-rate-<%= @article.id %>">総合評価　</div>
+      <script>
+      $('#star-rate-<%= @article.id %>').raty({
+        size: 36,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        half: true,
+        readOnly: true,
+        score: <%= @article.comments.average(:rate).to_f.round(1) %>,
+      });
+      </script>
+  </div>
+  <div class="admin-article-show-image">
+    <%= attachment_image_tag(@article, :image, :fill, 500, 300) %>
+  </div>
 
-<h2><%= @article.name %></h2>
-<%= attachment_image_tag(@article, :image, :fill, 300, 300) %>
-<%= @article.prefecture_name %>
-<%= @article.prefecture_code %>
-<%= @article.address_city %>
-<%= @article.address_street %>
-<%= @article.address_building %>
-<%= @article.site_url %>
-<%= @article.tax %>
-<%= @article.opening_hours %>
-<%= @article.closed %>
-<%= @article.introduction %>
-<p>
-  <%= link_to 'Edit', edit_admin_article_path(@article) %>
-</p>
-<p>
-  <%= link_to 'Destroy', admin_article_path(@article), method: :delete, data: { confirm: '本当に消しますか？' } %>
-</p>
+  <table class="article-show-information">
+    <tr>
+      <td>住所</td>
+      <td>
+        <%= @article.prefecture_name %>
+        <%= @article.prefecture_code %>
+        <%= @article.address_city %>
+        <%= @article.address_street %>
+        <%= @article.address_building %>
+      </td>
+    </tr>
+    <tr>
+      <td>公式サイト</td>
+      <td><%= @article.site_url %></td>
+    </tr>
+    <tr>
+      <td>料金説明</td>
+      <td><%= @article.tax %></td>
+    </tr>
+    <tr>
+      <td>営業時間</td>
+      <td><%= @article.opening_hours %></td>
+    </tr>
+    <tr>
+      <td>定休日</td>
+      <td><%= @article.closed %></td>
+    </tr>
+    <tr>
+      <td>その他</td>
+      <td><%= @article.introduction %></td>
+    </tr>
+    <tr>
+      <td>いいね数<%= @article.favorites.count %></td>
+      <td>スタンプ数<%= @article.stamps.count %></td>
+    </tr>
 
-<p>いいね数<%= @article.favorites.count %></p>
-<p>スタンプ数<%= @article.stamps.count %></p>
+      <td><%= link_to '編集', edit_admin_article_path(@article) %></td>
+      <td><%= link_to '削除', admin_article_path(@article), method: :delete, data: { confirm: '本当に消しますか？' } %></td>
 
-<div class="comments">
-<p>コメント件数：<%= @article.comments.count %></p>
+  </table>
+
+  <div class="new-comment">
+  <p>コメント件数：<%= @article.comments.count %></p>
   <% @article.comments.each do |comment| %>
     <%= comment.user.name %>
     <%= comment.created_at.strftime('%Y/%m/%d') %>
@@ -31,4 +69,8 @@
       <%= link_to "削除", article_comment_path(comment.article, comment), method: :delete %>
     </div>
   <% end %>
+   <p><%= link_to '戻る', articles_path %></p>
+  </div>
+
+
 </div>

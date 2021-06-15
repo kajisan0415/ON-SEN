@@ -1,8 +1,9 @@
+<div class="devise-container">
 <h1>編集(管理者側)</h1>
 <%= form_with model: @article,url: admin_article_path,local: true do |f| %>
   <table>
     <div class="form-group">
-        <p><%= f.label :商品画像 %>
+        <p><%= f.label :外観画像 %>
         <%= f.attachment_field :image, class: "form-control-file product_image" %></p>
     </div>
 
@@ -51,8 +52,9 @@
         <%= f.text_area :introduction, autofocus: true, placeholder: "説明文を記述", class: "introduction" %></p>
     </div>
 
-    <tr class="actions">
+    <div class="form-group">
       <%= f.submit "更新" ,class: 'btn btn-sm btn-success' %>
-    </tr>
+    </div>
   </table>
 <% end %>
+</div>

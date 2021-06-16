@@ -1,0 +1,23 @@
+<div class="devise-container">
+<h1>プロフィール変更</h1>
+<%= form_with model: @user,url: user_path,local: true do |f| %>
+  <table>
+    <div class="form-group">
+      <p><%= f.label :プロフィール画像 %>
+      <%= f.attachment_field :profile_image, class: "form-control-file user_image" %></p>
+    </div>
+    <div class="form-group">
+      <p><%= f.label :名前 %>
+      <%= f.text_field :name, autofocus: true, class: "name" %></p>
+    </div>
+    <div class="form-group">
+      <p><%= f.label :自己紹介 %>
+      <%= f.text_area :introduction, autofocus: true, class: "introduction" %></p>
+    </div>
+    <div class="form-group">
+      <%= f.submit "プロフィールを更新" ,class: 'btn btn-sm btn-success' %>
+    </div>
+  </table>
+  <p><%= link_to '戻る', user_path(current_user) %></p>
+<% end %>
+</div>

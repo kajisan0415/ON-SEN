@@ -17,6 +17,7 @@
   text-align: center;
   background-size: cover;
   background-position: center;
+  border-radius: 5%;
 }
 
 .article-show {
@@ -24,6 +25,7 @@
    background-size: cover;
    width: 70%;
    margin: 0 auto;
+   border-radius: 5%;
 }
 
 .article-show-top {
@@ -70,3 +72,8 @@
 .new-comment {
   text-align: center;
 }
+
+.admin-article-show-image {
+  margin-left: 145px;
+}
+

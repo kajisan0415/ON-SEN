@@ -27,4 +27,7 @@ class Article < ApplicationRecord
     def self.search(keyword)
       where(["name like? OR introduction like? OR prefecture_code like? OR address_city like?", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"])
     end
+
+    geocoded_by :address_city
+    after_validation :geocode
 end

@@ -7,6 +7,7 @@ class Public::ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @comment = Comment.new
+    gon.article = @article
   end
 
   def edit
@@ -36,12 +37,16 @@ class Public::ArticlesController < ApplicationController
   end
 
   def ranking
-    @all_ranks = Article.find(Favorite.group(:article_id).order('count(article_id) desc').limit(3).pluck(:article_id))
-    @stamp_ranks = Article.find(Stamp.group(:article_id).order('count(article_id) desc').limit(3).pluck(:article_id))
+    @all_ranks = Article.find(Favorite.group(:article_id).order('count(article_id) desc').limit(4).pluck(:article_id))
+    @stamp_ranks = Article.find(Stamp.group(:article_id).order('count(article_id) desc').limit(4).pluck(:article_id))
   end
 
   def mapping
-end
+  end
+
+  def googlemap
+     @articles = Article.all
+  end
 private
 
   def article_params
@@ -55,7 +60,9 @@ private
     :tax,
     :opening_hours,
     :closed,
-    :introduction
+    :introduction,
+    :latitude,
+    :longitude
     )
   end
 

@@ -2,7 +2,7 @@
 <h1>記録</h1>
 
 
-<%= link_to '日記をかく', new_blog_path %>
+<h3><%= link_to '日記をかく', new_blog_path %></h3>
 
 <%= month_calendar events: @blogs do |date, blogs| %>
   <%= date.day %>

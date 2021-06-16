@@ -36,8 +36,8 @@ class Public::ArticlesController < ApplicationController
   end
 
   def ranking
-    @all_ranks = Article.find(Favorite.group(:article_id).order('count(article_id) desc').limit(3).pluck(:article_id))
-    @stamp_ranks = Article.find(Stamp.group(:article_id).order('count(article_id) desc').limit(3).pluck(:article_id))
+    @all_ranks = Article.find(Favorite.group(:article_id).order('count(article_id) desc').limit(4).pluck(:article_id))
+    @stamp_ranks = Article.find(Stamp.group(:article_id).order('count(article_id) desc').limit(4).pluck(:article_id))
   end
 
   def mapping

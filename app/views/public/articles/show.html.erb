@@ -61,7 +61,40 @@
     <td></td>
     <td><%= link_to '編集', edit_article_path(@article), class: "article-show-edit" %></td>
   </table>
-  <div class="new-comment">
+ 
+<!--googlemap表示　-->
+<div id='map'></div>
+<style>
+#map {
+  height: 300px;
+  width: 300px;
+}
+</style>
+
+<script>
+let map;
+
+function initMap(){
+  geocoder = new google.maps.Geocoder()
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: <%= @article.latitude %>, lng: <%= @article.longitude %>},
+    zoom: 12,
+  });
+
+  (function(){
+    var contentString = "住所：<%= @article.address_city %>";
+
+    var marker = new google.maps.Marker({
+        position:{lat: <%= @article.latitude %>, lng: <%= @article.longitude %>},
+        map: map,
+        title: contentString
+    });
+  })();
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV["Google_Maps_API_Key"]%>&callback=initMap" async defer></script>
+ <div class="new-comment">
    <h3>コメントフォーム</h3>
   <%= form_with(model:[@article, @comment], re: true) do |f| %>
     <div class="form-group">
@@ -86,33 +119,8 @@
       half: true,
     });
     </script>
-<div id='map'></div>
-<style>
-#map {
-  height: 500px;
-  width: 500px;
-}
-</style>
 
-<script>
-let map
-
-function initMap(){
-  geocoder = new google.maps.Geocoder()
-
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 35.68123620000001, lng:139.7671248},
-    zoom: 12,
-  });
-
-  marker = new google.maps.Marker({
-    position:  {lat: 35.68123620000001, lng:139.7671248},
-    map: map
-  });
-}
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV["Google_Maps_API_Key"]%>&callback=initMap" async defer></script>
-
+<!-- 送信ボタン -->
     <%= f.submit "送信する", class: "form-group" %>
   <% end %>
 

@@ -7,6 +7,7 @@ class Public::ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @comment = Comment.new
+    gon.article = @article
   end
 
   def edit
@@ -41,7 +42,11 @@ class Public::ArticlesController < ApplicationController
   end
 
   def mapping
-end
+  end
+
+  def googlemap
+     @articles = Article.all
+  end
 private
 
   def article_params
@@ -55,7 +60,9 @@ private
     :tax,
     :opening_hours,
     :closed,
-    :introduction
+    :introduction,
+    :latitude,
+    :longitude
     )
   end
 

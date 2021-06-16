@@ -6,6 +6,7 @@ class Admin::ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    gon.article = @article
   end
 
   def new

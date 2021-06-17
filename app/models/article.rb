@@ -13,19 +13,9 @@ class Article < ApplicationRecord
     stamps.where(user_id: user.id).exists?
   end
 
-  include JpPrefecture
-    jp_prefecture :prefecture_code
-
-    def prefecture_name
-      JpPrefecture::Prefecture.find(code: prefecture_code).try(:name)
-    end
-
-    def prefecture_name=(prefecture_name)
-      self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
-    end
 
     def self.search(keyword)
-      where(["name like? OR introduction like? OR prefecture_code like? OR address_city like?", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"])
+      where(["name like? OR introduction like?  OR address_city like?", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"])
     end
 
     geocoded_by :address_city

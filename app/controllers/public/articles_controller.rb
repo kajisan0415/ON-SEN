@@ -46,6 +46,7 @@ class Public::ArticlesController < ApplicationController
 
   def googlemap
      @articles = Article.all
+     @prefecture = params[:prefecture]
   end
 private
 

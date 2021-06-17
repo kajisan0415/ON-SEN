@@ -28,7 +28,7 @@ devise_for :admin, :controllers => {
     get "search" => "articles#search"
     get "ranking" => "articles#ranking"
     get "mapping" => "articles#mapping"
-    get "googlemap" => "articles#googlemap"
+    get "googlemap/:prefecture" => "articles#googlemap", as: "map_prefecture"
   end
 
   root to: "public/homes#top"

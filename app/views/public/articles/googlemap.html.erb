@@ -20,13 +20,11 @@
       <% @articles.each do |m| %>
           (function(){
           var contentString = "住所：<%= m.address_city %>";
-
           var marker = new google.maps.Marker({
               position:{lat: <%= m.latitude %>, lng: <%= m.longitude %>},
               map: map,
               title: contentString
           });
-
           })();
       <% end %>
       }

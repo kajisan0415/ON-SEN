@@ -13,7 +13,6 @@ class Article < ApplicationRecord
     stamps.where(user_id: user.id).exists?
   end
 
-
     def self.search(keyword)
       where(["name like? OR introduction like?  OR address_city like?", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"])
     end

@@ -15,14 +15,14 @@
       </script>
 
       <% if user_signed_in? %>
-      <p class="favorite-btn"><%= render "public/favorites/favorite-btn", article: @article %></p>
+      <div class="favorite-btn"><%= render "public/favorites/favorite-btn", article: @article %></div>
       <% end %>
   </div>
   <div class="article-show-image">
     <%= attachment_image_tag(@article, :image, :fill, 250, 250) %>
     <div class="article-show-image-contents">
       <% if user_signed_in? %>
-      <p class="stamp-btn"><%= render "public/stamps/stamp-btn", article: @article %></p>
+      <div class="stamp-btn"><%= render "public/stamps/stamp-btn", article: @article %></div>
       <% end %>
     </div>
   </div>
@@ -58,8 +58,9 @@
     <td></td>
     <td><%= link_to '編集', edit_article_path(@article), class: "article-show-edit" %></td>
   </table>
- 
+
 <!--googlemap表示　-->
+
 <div id='map'></div>
 <style>
 #map {
@@ -69,15 +70,18 @@
 </style>
 
 <script>
+
 let map;
 
 function initMap(){
+
   geocoder = new google.maps.Geocoder()
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: <%= @article.latitude %>, lng: <%= @article.longitude %>},
     zoom: 12,
   });
+
 
   (function(){
     var contentString = "住所：<%= @article.address_city %>";
@@ -89,11 +93,13 @@ function initMap(){
     });
   })();
   }
+
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV["Google_Maps_API_Key"]%>&callback=initMap" async defer></script>
+
  <div class="new-comment">
    <h3>コメントフォーム</h3>
-  <%= form_with(model:[@article, @comment], re: true) do |f| %>
+  <%= form_with(model:[@article, @comment],data: {remote: false}) do |f| %>
     <div class="form-group">
       <%= f.text_field :title, placeholder: "タイトル" %>
     </div>

@@ -41,7 +41,7 @@
     </tr>
     <tr>
       <td>料金説明</td>
-      <td><%= @article.tax %></td>
+      <td ><%= @article.tax %></td>
     </tr>
     <tr>
       <td>営業時間</td>
@@ -53,7 +53,7 @@
     </tr>
     <tr>
       <td>その他</td>
-      <td><%= @article.introduction %></td>
+      <td class="word-break"><%= @article.introduction %></td>
     </tr>
     <td></td>
     <td><%= link_to '編集', edit_article_path(@article), class: "article-show-edit" %></td>
@@ -128,10 +128,11 @@ function initMap(){
   <% end %>
 
   <p>コメント件数：<%= @article.comments.count %></p>
+
+</div>
   <div class="comments">
     <%= render 'public/comments/comment', article: @article,comment: @comment %>
   </div>
 
-  <p><%= link_to '戻る', articles_path %></p>
-
+  <p class=return-btn><%= link_to '戻る', articles_path %></p>
 </div>

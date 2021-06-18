@@ -1,5 +1,4 @@
-<h1>新規投稿(管理者側)</h1>
-  <% if @article.errors.any? %>
+    <% if @article.errors.any? %>
   <div id="error_explanation">
    <ul>
     <%= @article.errors.count %>errors prohibited this book from being saved:
@@ -11,6 +10,8 @@
     <% end %>
    </ul>
   </div>
+<div class="devise-container">
+<h1>新規投稿(管理者側)</h1>
 <%= form_with model: @article,url: admin_articles_path,local: true do |f| %>
   <table>
     <div class="form-group">
@@ -53,3 +54,4 @@
     </tr>
   </table>
 <% end %>
+</div>

@@ -1,34 +1,68 @@
 <div id='map'></div>
 <style>
 #map {
-  height: 600px;
+  height: 650px;
   width: 1100px;
 }
 </style>
 
 <script>
   let map
-
+  let geocoder
     function initMap(){
       geocoder = new google.maps.Geocoder()
 
       map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 35.68123620000001, lng:139.7671248},
-          zoom: 12,
+          //center: {lat: 35.68123620000001, lng:139.7671248},
+          zoom: 10,
+      });
+}
+function codeAddress(){
+  // 入力を取得
+   initMap();
+  let inputAddress = "<%= @prefecture %>"
+
+
+  // geocodingしたあとmapを移動
+  geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+    if (status == 'OK') {
+　　　　　　　　　　　　// map.setCenterで地図が移動
+      map.setCenter(results[0].geometry.location);
+
+　　　　　　　　　　　　// google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+
+  <% @articles.each do |m| %>
+      (function(){
+      var contentString = "住所：<%= m.address_city %>";
+
+      var marker = new google.maps.Marker({
+          position:{lat: <%= m.latitude %>, lng: <%= m.longitude %>},
+          map: map,
+          title: contentString
+
+
       });
 
-      <% @articles.each do |m| %>
-          (function(){
-          var contentString = "住所：<%= m.address_city %>";
+       var infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
+              content: '<div class="sample"><%= link_to article_path(m) do %><%= m.name %><% end %></div>' // 吹き出しに表示する内容
+        });
 
-          var marker = new google.maps.Marker({
-              position:{lat: <%= m.latitude %>, lng: <%= m.longitude %>},
-              map: map,
-              title: contentString
+       marker.addListener('click', function() { // マーカーをクリックしたとき
+           infoWindow.open(map, marker); // 吹き出しの表示
           });
+            })();
 
-          })();
-      <% end %>
-      }
+  <% end %>
+}
+
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV["Google_Maps_API_Key"]%>&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV["Google_Maps_API_Key"]%>&callback=codeAddress" async defer></script>
+

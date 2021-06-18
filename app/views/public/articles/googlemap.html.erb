@@ -1,7 +1,7 @@
 <div id='map'></div>
 <style>
 #map {
-  height: 600px;
+  height: 650px;
   width: 1100px;
 }
 </style>
@@ -40,17 +40,27 @@ function codeAddress(){
   });
 
   <% @articles.each do |m| %>
-          (function(){
-          var contentString = "住所：<%= m.address_city %>";
+      (function(){
+      var contentString = "住所：<%= m.address_city %>";
 
-          var marker = new google.maps.Marker({
-              position:{lat: <%= m.latitude %>, lng: <%= m.longitude %>},
-              map: map,
-              title: contentString
+      var marker = new google.maps.Marker({
+          position:{lat: <%= m.latitude %>, lng: <%= m.longitude %>},
+          map: map,
+          title: contentString
+
+
+      });
+
+       var infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
+              content: '<div class="sample"><%= link_to article_path(m) do %><%= m.name %><% end %></div>' // 吹き出しに表示する内容
+        });
+
+       marker.addListener('click', function() { // マーカーをクリックしたとき
+           infoWindow.open(map, marker); // 吹き出しの表示
           });
-          })();
-      <% end %>
+            })();
 
+  <% end %>
 }
 
 </script>

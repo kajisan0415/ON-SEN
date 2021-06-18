@@ -1,8 +1,5 @@
 class Admin::ArticlesController < ApplicationController
-
-  def index
-    @articles = Article.all
-  end
+before_action :authenticate_admin!
 
   def show
     @article = Article.find(params[:id])

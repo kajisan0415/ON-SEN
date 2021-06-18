@@ -1,3 +1,43 @@
 // Place all the styles related to the public/blogs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.blog-show {
+   border: 2px solid #ACAAAA;
+   background-size: cover;
+   width: 70%;
+   margin: 0 auto;
+   border-radius: 5%;
+}
+
+.blog-title {
+  text-align: center;
+}
+
+.blog-top {
+  display: flex;
+  margin-left: 50px;
+}
+
+.blog-memo {
+  margin-left: 50px;
+  height: 300px;
+  width: 330px;
+  border: 2px solid #ACAAAA;
+  padding: 10px;
+  word-break: break-word;
+}
+
+.blog-body {
+  width: 90%;
+  height: 200px;
+  border: 2px solid #ACAAAA;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding-left: 10px;
+  word-break: break-word;
+}
+
+.blog-bottom {
+  text-align: center;
+}

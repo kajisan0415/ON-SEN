@@ -1,4 +1,5 @@
 class Public::StampsController < ApplicationController
+  before_action :authenticate_user!
   def create
     @article = Article.find(params[:article_id])
     stamp = current_user.stamps.new(article_id: @article.id)

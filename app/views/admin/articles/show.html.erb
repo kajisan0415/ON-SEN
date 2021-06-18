@@ -31,7 +31,7 @@
     </tr>
     <tr>
       <td>料金説明</td>
-      <td><%= @article.tax %></td>
+      <td class="word-break"><%= @article.tax %></td>
     </tr>
     <tr>
       <td>営業時間</td>
@@ -43,7 +43,7 @@
     </tr>
     <tr>
       <td>その他</td>
-      <td><%= @article.introduction %></td>
+      <td class="word-break"><%= @article.introduction %></td>
     </tr>
     <tr>
       <td>いいね数<%= @article.favorites.count %></td>
@@ -87,16 +87,38 @@ function initMap(){
 
   <div class="new-comment">
   <p>コメント件数：<%= @article.comments.count %></p>
-  <% @article.comments.each do |comment| %>
-    <%= comment.user.name %>
-    <%= comment.created_at.strftime('%Y/%m/%d') %>
-    <%= comment.body %>
-    <div class="comment-delete">
-      <%= link_to "削除", article_comment_path(comment.article, comment), method: :delete %>
-    </div>
-  <% end %>
-   <p><%= link_to '戻る', articles_path %></p>
   </div>
 
-
+  <div class="comments">
+<% @article.comments.each do |comment| %>
+<div class="comment-box">
+  <div class="comment-box-top">
+  <%= attachment_image_tag(@user, :profile_image_id, :fill, 30, 30, fallback: "My Post (11).png", size:'30x30') %>
+  <%= comment.user.name %>
+  <%= comment.title %>
+    <div id="star-rate-<%= comment.id %>"></div>
+            <script>
+            $('#star-rate-<%= comment.id %>').raty({
+              size: 36,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              half: true,
+              readOnly: true,
+              score: <%= comment.rate %>,
+            });
+            </script>
+  </div>
+  <div class="comment-box-bottom">
+    <div><%= comment.body %></div>
+    <div><%= comment.created_at.strftime('%Y/%m/%d') %></div>
+  </div>
+  <div class="comment-delete">
+      <%= link_to "削除", article_comment_path(comment.article, comment), method: :delete %>
+    </div>
 </div>
+<% end %>
+<p class=return-btn><%= link_to '戻る', articles_path %></p>
+</div>
+
+

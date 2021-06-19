@@ -19,4 +19,13 @@ class Article < ApplicationRecord
 
     geocoded_by :address_city
     after_validation :geocode
+    
+    validates :address_city, presence: true
+    validates :name, presence: true, uniqueness: true
+    validates :introduction, presence: true
+    validates :tax, presence: true
+    validates :opening_hours, presence: true
+    validates :image, presence: true
+    validates :closed,presence: true
+    validates :time,presence: true
 end

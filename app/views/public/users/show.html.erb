@@ -2,7 +2,7 @@
   <div class="user-profile">
     <div class="user-show-top">
       <div class="user-show-top-left">
-        <%= attachment_image_tag(@user, :profile_image_id, :fill, 300, 300, fallback: "My Post (11).png", size:'300x300') %>
+        <%= attachment_image_tag(@user, :profile_image, :fill, 300, 300, fallback: "My Post (11).png", size:'300x300') %>
       </div>
       <div class="user-show-top-right">
         <h1><%= @user.name %></h1>

@@ -11,5 +11,5 @@ class User < ApplicationRecord
   has_many :favorite_articles, through: :favorites, source: :article
   has_many :stamped_articles, through: :stamps, source: :article
 
-
+  validates :introduction, length: { maximum: 270 }
 end

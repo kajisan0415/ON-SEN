@@ -1,4 +1,4 @@
-<% @article.comments.each do |comment| %>
+<% @comments.each do |comment| %>
 <div class="comment-box">
   <div class="comment-box-top">
   <%= link_to user_path(comment.user) do %>
@@ -30,3 +30,4 @@
   <% end %>
 </div>
 <% end %>
+ <div class="pagenate"><%= paginate @comments %></div>

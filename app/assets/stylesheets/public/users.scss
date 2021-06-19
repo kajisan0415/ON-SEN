@@ -3,8 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .user-show-top {
-  margin-left: 40px;
+  margin-left: 60px;
   display: flex;
+}
+
+.user-show-top-left {
+  margin-top: 30px;
+  object-fit: cover;
 }
 
 .user-show-top-right {
@@ -17,6 +22,7 @@
   border: 2px solid #ACAAAA;
   margin: 0 auto;
   word-break: break-word;
+  margin-top: 30px;
 }
 
 .user-stamp-container {

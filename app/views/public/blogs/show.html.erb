@@ -4,7 +4,7 @@
   <div class="blog-container">
 
     <div class="blog-top">
-      <%= attachment_image_tag(@blog, :image, :fill, 300, 300) %>
+      <%= attachment_image_tag(@blog, :image, :fill, 300, 300, fallback: "My Post (11).png", size:'300x300') %>
     <div class="blog-memo">Memo
       <%= @blog.memo %>
       </div>

@@ -33,6 +33,7 @@
   height: 100px;
   display: flex;
   border-bottom: 6px solid black;
+  margin-top: -25px;
 }
 
 .navbar-right {
@@ -91,4 +92,47 @@
 textarea {
     width: 300px;
     height: 100px;
+}
+
+/* Loading背景画面設定　*/
+#splash {
+/*fixedで全面に固定*/
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background-color: rgba( 250, 250, 250, 0.9);
+  text-align:center;
+}
+
+
+
+/* Loading画像中央配置　*/
+#splash_logo{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+}
+
+
+/* fadeUpをするアイコンの動き */
+.fadeUp{
+animation-name: fadeUpAnime;
+animation-duration:0.8s;
+animation-fill-mode:forwards;
+opacity: 1;
+}
+
+@keyframes fadeUpAnime{
+  from {
+    opacity: 0;
+  transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+  transform: translateY(0);
+  }
 }

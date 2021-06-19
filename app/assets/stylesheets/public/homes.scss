@@ -37,13 +37,14 @@
 }
 
 .top-main {
-  width: 85%;
+  width: 100%;
   margin: 0 auto;
   margin-bottom: 70px;
   background-size: cover;
   background-image: image-url("cloris-ying-WfJUFG3opyo-unsplash.jpg");
   margin-top: 50px;
   background-position: center;
+  margin-left: -60px;
 }
 
 .about {
@@ -74,4 +75,12 @@
    width: 100%;
    margin: 0 auto;
    color: white;
+}
+
+.top-container:hover {
+  background-color: rgba( 250, 250, 250, 0.7);
+}
+
+.top-enter:hover {
+  color: black;
 }

@@ -2,10 +2,13 @@
 <div class= "articles-container">
   <% @all_ranks.each.with_index(1) do |article, i| %>
     <div class="article-box">
+      <!--順位を表示-->
       <i class="fas fa-crown" style="color:gold;"></i>
       <p>第<%= i%>位</p>
+      <!--名前-->
       <p><%= article.name %></p>
-        <% if admin_signed_in? %>
+      <!--画像、リンク先は管理者側とエンドユーザ側で分ける-->
+      <% if admin_signed_in? %>
         <%= link_to admin_article_path(article) do %>
         <%= attachment_image_tag article, :image, :fill, 200, 200, class: 'grid-article' %>
         <% end %>
@@ -14,7 +17,8 @@
         <%= attachment_image_tag article, :image, :fill, 200, 200, class: 'grid-article' %>
         <% end %>
       <% end %>
-      <p>コメント件数：<%= article.comments.count %></p>
+      <!--コメント件数-->
+      <p>行きたい数：<%= article.favorites.count %></p>
 
     </div>
   <% end %>
@@ -24,13 +28,23 @@
 <div class= "articles-container">
 <% @stamp_ranks.each.with_index(1) do |article, a| %>
   <div class="article-box">
+    <!--順位を表示-->
     <i class="fas fa-crown" style="color:gold;"></i>
     <p>第<%= a%>位</p>
+    <!--名前-->
     <p><%= article.name %></p>
-    <%= link_to article_path(article) do %>
-    <%= attachment_image_tag article, :image, :fill, 200, 200, class: 'grid-article' %>
+    <!--画像、リンク先は管理者側とエンドユーザ側で分ける-->
+    <% if admin_signed_in? %>
+      <%= link_to admin_article_path(article) do %>
+      <%= attachment_image_tag article, :image, :fill, 200, 200, class: 'grid-article' %>
+      <% end %>
+    <% else %>
+      <%= link_to article_path(article) do %>
+      <%= attachment_image_tag article, :image, :fill, 200, 200, class: 'grid-article' %>
+      <% end %>
     <% end %>
-      <p>コメント件数：<%= article.comments.count %></p>
+    <!--コメント件数-->
+    <p>総スタンプ数：<%= article.stamps.count %></p>
   </div>
 <% end %>
 </div>

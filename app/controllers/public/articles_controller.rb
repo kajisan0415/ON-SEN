@@ -32,7 +32,7 @@ class Public::ArticlesController < ApplicationController
   render "search"
   end
 
-  def ranking
+  def ranking #いいね数とスタンプ数のランキング4位までを表示
     @all_ranks = Article.find(Favorite.group(:article_id).order('count(article_id) desc').limit(4).pluck(:article_id))
     @stamp_ranks = Article.find(Stamp.group(:article_id).order('count(article_id) desc').limit(4).pluck(:article_id))
   end
@@ -40,7 +40,7 @@ class Public::ArticlesController < ApplicationController
   def mapping
   end
 
-  def googlemap
+  def googlemap #地図上にピンとそのリンク先を表示、県名を取得できるように
      @articles = Article.all
      @prefecture = params[:prefecture]
   end

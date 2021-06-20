@@ -38,7 +38,7 @@ function codeAddress(){
       alert('Geocode was not successful for the following reason: ' + status);
     }
   });
-
+ //温泉の位置情報を全て地図に表示
   <% @articles.each do |m| %>
       (function(){
       var contentString = "住所：<%= m.address_city %>";

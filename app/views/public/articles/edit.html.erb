@@ -1,5 +1,7 @@
+<%= render 'layouts/errors', obj: @article %>
 <div class="devise-container">
 <h1>編集</h1>
+<!--エンドユーザ側投稿編集フォーム-->
 <%= form_with model: @article,url: article_path,local: true do |f| %>
 <table>
     <div class="form-group">

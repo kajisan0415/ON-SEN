@@ -1,6 +1,8 @@
 <div class="article-show">
   <div class="article-show-top">
     <h1 class="article-show-title"><%= @article.name %></h1>
+    
+    <!--レビュー総合評価-->
     <div id="star-rate-<%= @article.id %>">総合評価　</div>
       <script>
       $('#star-rate-<%= @article.id %>').raty({
@@ -13,11 +15,13 @@
         score: <%= @article.comments.average(:rate).to_f.round(1) %>,
       });
       </script>
+      
   </div>
-  <div class="admin-article-show-image">
+  <div class="admin-article-show-image"><!---->
     <%= attachment_image_tag(@article, :image, :fill, 500, 300) %>
   </div>
-
+  
+<!--情報一覧-->
   <table class="article-show-information">
     <tr>
       <td>住所</td>
@@ -52,6 +56,7 @@
       <td><%= link_to '編集', edit_admin_article_path(@article) %></td>
       <td><%= link_to '削除', admin_article_path(@article), method: :delete, data: { confirm: '本当に消しますか？' } %></td>
   </table>
+  
 <!--googlemap表示　-->
 <div id='map' data-no-turbolink></div>
 <style>
@@ -85,37 +90,40 @@ function initMap(){
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV["Google_Maps_API_Key"]%>&callback=initMap" async defer></script>
 
+<!--コメント件数-->
   <div class="new-comment">
   <p>コメント件数：<%= @article.comments.count %></p>
   </div>
-
+  
+<!--コメント一覧-->
   <div class="comments">
-<% @article.comments.each do |comment| %>
-<div class="comment-box">
-  <div class="comment-box-top">
-  <%= attachment_image_tag(@user, :profile_image_id, :fill, 30, 30, fallback: "My Post (11).png", size:'30x30') %>
-  <%= comment.user.name %>
-  <%= comment.title %>
-    <div id="star-rate-<%= comment.id %>"></div>
-            <script>
-            $('#star-rate-<%= comment.id %>').raty({
-              size: 36,
-              starOff:  '<%= asset_path('star-off.png') %>',
-              starOn : '<%= asset_path('star-on.png') %>',
-              starHalf: '<%= asset_path('star-half.png') %>',
-              half: true,
-              readOnly: true,
-              score: <%= comment.rate %>,
-            });
-            </script>
+    <% @article.comments.each do |comment| %>
+    <!--コメント欄-->
+    <div class="comment-box">
+      <!--コメント欄上部-->
+      <div class="comment-box-top">
+      <%= attachment_image_tag(@user, :profile_image_id, :fill, 30, 30, fallback: "My Post (11).png", size:'30x30') %>
+      <%= comment.user.name %>
+      <%= comment.title %>
+        <div id="star-rate-<%= comment.id %>"></div>
+                <script>
+                $('#star-rate-<%= comment.id %>').raty({
+                  size: 36,
+                  starOff:  '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  half: true,
+                  readOnly: true,
+                  score: <%= comment.rate %>,
+                });
+                </script>
+      </div>
+      <!--コメント欄下部-->
+      <div class="comment-box-bottom">
+        <div><%= comment.body %></div>
+        <div><%= comment.created_at.strftime('%Y/%m/%d') %></div>
+      </div>
+    </div>
+    <% end %>
+    <p class=return-btn><%= link_to '戻る', articles_path %></p>
   </div>
-  <div class="comment-box-bottom">
-    <div><%= comment.body %></div>
-    <div><%= comment.created_at.strftime('%Y/%m/%d') %></div>
-  </div>
-</div>
-<% end %>
-<p class=return-btn><%= link_to '戻る', articles_path %></p>
-</div>
-
-

@@ -27,6 +27,11 @@ class Public::UsersController < ApplicationController
       @user = User.find_by(params[:id])
   end
 
+  def calender
+    @user = User.find(params[:id])
+  end
+
+
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
   end

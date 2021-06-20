@@ -10,13 +10,14 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <!--ホーム画面でロード画面を表示-->
   <% if current_page?(root_path) %>
-  <div id="splash">
-      <div id="splash_logo"><%= image_tag 'My Post (14).png', class: "d-block w-100 fadeUp"%></div>
-  </div>
-  <%= render 'layouts/header' %>
-  <%= yield %>
-  <%= render 'layouts/footer' %>
+    <div id="splash">
+        <div id="splash_logo"><%= image_tag 'My Post (14).png', class: "d-block w-100 fadeUp"%></div>
+    </div>
+    <%= render 'layouts/header' %>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
   <% else %>
   <body>
     <%= render 'layouts/header' %>

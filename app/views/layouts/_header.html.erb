@@ -7,7 +7,7 @@
       <li><%= link_to 'マップ検索', mapping_path, class:"nav-list-item" %></li>
       <li><%= link_to 'マイページ', user_path(current_user), class:"nav-list-item" %></li>
       <li><%= link_to '一覧', articles_path, class:"nav-list-item" %></li>
-      <li><%= link_to '記録', blogs_path, class:"nav-list-item" %></li>
+      <li><%= link_to '記録', calender_user_path(current_user), class:"nav-list-item" %></li>
       <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete,class:"nav-list-item" %></li>
     <% elsif admin_signed_in? %>
       <h2 class="nav-list-item">管理者ページ</h2>

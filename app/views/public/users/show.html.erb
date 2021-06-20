@@ -18,7 +18,7 @@
         <% elsif @user.stamped_articles.count >= 100 %>
         <h2>温泉ゴッド</h2>
         <% end %>
-        <h3><%= link_to '温泉の記録', blogs_path(@user) %></h3>
+        <h3><%= link_to '温泉の記録', calender_user_path(@user) %></h3>
         <h3><%= link_to '行きたいリスト', favorites_user_path %></h3>
         <% if @user.id == current_user.id %>
         <p><%= link_to 'プロフィール編集', edit_user_path(@user) %></p>

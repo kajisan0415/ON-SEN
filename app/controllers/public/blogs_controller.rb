@@ -1,8 +1,5 @@
 class Public::BlogsController < ApplicationController
 before_action :authenticate_user!
-  def index
-    @user = current_user
-  end
 
   def show
     @blog = Blog.find(params[:id])
@@ -17,7 +14,8 @@ before_action :authenticate_user!
     @blog = Blog.new(blog_params)
     @blog.user_id = current_user.id
     if @blog.save
-      redirect_to user_blogs_path
+      @user = @blog.user
+      redirect_to calender_user_path(@user)
     else
       render :new and return
     end
@@ -25,6 +23,7 @@ before_action :authenticate_user!
 
   def edit
     @blog = Blog.find(params[:id])
+    @user = @blog.user
   end
 
   def update
@@ -40,7 +39,8 @@ before_action :authenticate_user!
   def destroy
     @blog = Blog.find(params[:id])
     @blog.destroy
-    redirect_to blogs_path
+    @user = @blog.user
+    redirect_to calender_user_path(@user)
   end
 
   private

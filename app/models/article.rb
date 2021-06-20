@@ -13,18 +13,18 @@ class Article < ApplicationRecord
     stamps.where(user_id: user.id).exists?
   end
 
-    def self.search(keyword)
-      where(["name like? OR introduction like?  OR address_city like?", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"])
-    end
+  def self.search(keyword) #温泉名、住所、その他から特定のワードを検索可能にしている
+    where(["name like? OR introduction like?  OR address_city like?", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"])
+  end
 
-    geocoded_by :address_city
-    after_validation :geocode
-    
-    validates :address_city, presence: true
-    validates :name, presence: true, uniqueness: true
-    validates :introduction, presence: true
-    validates :tax, presence: true
-    validates :opening_hours, presence: true
-    validates :image, presence: true
-    validates :closed,presence: true
+  geocoded_by :address_city
+  after_validation :geocode
+
+  validates :address_city, presence: true
+  validates :name, presence: true, uniqueness: true
+  validates :introduction, presence: true
+  validates :tax, presence: true
+  validates :opening_hours, presence: true
+  validates :image, presence: true
+  validates :closed,presence: true
 end

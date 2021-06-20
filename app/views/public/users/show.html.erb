@@ -1,11 +1,13 @@
 <div class="article-show">
   <div class="user-profile">
     <div class="user-show-top">
+      <!--プロフィール画像を表示-->
       <div class="user-show-top-left">
         <%= attachment_image_tag(@user, :profile_image, :fill, 300, 300, fallback: "My Post (11).png", size:'300x300') %>
       </div>
       <div class="user-show-top-right">
         <h1><%= @user.name %></h1>
+        <!--スタンプ数に応じてランクづけされるように設定-->
         <h2>温泉Lv.<%= @user.stamped_articles.count %></h2>
         <% if @user.stamped_articles.count <= 10 %>
         <h2>ランク：温泉ビギナー</h2>
@@ -18,22 +20,33 @@
         <% elsif @user.stamped_articles.count >= 100 %>
         <h2>温泉ゴッド</h2>
         <% end %>
+        <!--カレンダーページにリンク-->
         <h3><%= link_to '温泉の記録', calender_user_path(@user) %></h3>
         <h3><%= link_to '行きたいリスト', favorites_user_path %></h3>
+        <!--ログインユーザーのみ編集可能-->
         <% if @user.id == current_user.id %>
         <p><%= link_to 'プロフィール編集', edit_user_path(@user) %></p>
         <% end %>
       </div>
     </div>
+    <!--自己紹介文-->
     <div class=user-show-introduction>
       <%= @user.introduction %>
     </div>
+    <!--スタンプをつけた記事の写真を全て表示-->
     <div class="user-stamp-container">
       <% @user.stamped_articles.each do |article| %>
         <div class="user-stamp-box">
-        <%= link_to article_path(article) do %>
-        <%= attachment_image_tag article, :image, :fill, 103, 103, class: 'grid-article' %>
-        <% end %>
+          <!--画像、リンク先は管理者側とエンドユーザ側で分ける-->
+          <% if admin_signed_in? %>
+            <%= link_to admin_article_path(article) do %>
+              <%= attachment_image_tag article, :image, :fill, 103, 103, class: 'grid-article' %>
+            <% end %>
+          <% else %>
+            <%= link_to article_path(article) do %>
+              <%= attachment_image_tag article, :image, :fill, 103, 103, class: 'grid-article' %>
+            <% end %>
+          <% end %>
         </div>
       <% end %>
     </div>

@@ -1,22 +1,22 @@
 <div class="blog-show">
-  <!---->
+  <!--記録タイトル-->
   <h1 class="blog-title"><%= @blog.title %></h1>
-  <!---->
+  <!--日付表示-->
   <h4 class="blog-title"><%= @blog.start_time.strftime('%Y/%m/%d') %></h4>
   <div class="blog-container">
-<!---->
+<!--記録写真表示-->
     <div class="blog-top">
       <%= attachment_image_tag(@blog, :image, :fill, 300, 300, fallback: "My Post (11).png", size:'300x300') %>
-      <!---->
+      <!--メモ表示-->
     <div class="blog-memo">Memo
       <%= @blog.memo %>
       </div>
     </div>
-<!---->
+<!--記録本文表示-->
     <div class="blog-body">
       <%= @blog.body %>
     </div>
-<!---->
+<!--ログインユーザーでなければ編集削除はできない-->
     <div class="blog-bottom">
       <% if @user.id == current_user.id %>
         <p>

@@ -27,5 +27,4 @@ class Article < ApplicationRecord
     validates :opening_hours, presence: true
     validates :image, presence: true
     validates :closed,presence: true
-    validates :time,presence: true
 end

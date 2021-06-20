@@ -12,7 +12,7 @@ class Public::CommentsController < ApplicationController
     Comment.find_by(id: params[:id], article_id: params[:article_id]).destroy
     redirect_back(fallback_location: root_path)
   end
-  
+
    private
 
   def comment_params

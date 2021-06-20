@@ -1,7 +1,7 @@
 class Public::BlogsController < ApplicationController
 before_action :authenticate_user!
   def index
-    @blogs = Blog.all
+    @user = current_user
   end
 
   def show
@@ -17,7 +17,7 @@ before_action :authenticate_user!
     @blog = Blog.new(blog_params)
     @blog.user_id = current_user.id
     if @blog.save
-      redirect_to blogs_path
+      redirect_to user_blogs_path
     else
       render :new and return
     end

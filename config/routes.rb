@@ -10,15 +10,14 @@ devise_for :admin, :controllers => {
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :admin do
-    resources :articles,only: [:new, :create, :edit, :update, :show, :destroy]
+    resources :articles,only: [:new, :create, :edit, :update, :show, :destroy] do
+    end
   end
 
   scope module: :public do
     resources :blogs
     resources :users,only: [:show,:edit,:update] do
-      collection do
-        get :favorites
-      end
+      get :favorites, on: :member
     end
     resources :articles,only: [:index, :edit, :update, :show] do
       resources :comments, only: [:create, :destroy]

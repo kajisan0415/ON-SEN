@@ -4,7 +4,7 @@
 
 <h3><%= link_to '日記をかく', new_blog_path %></h3>
 
-<%= month_calendar events: @blogs do |date, blogs| %>
+<%= month_calendar events: @user.blogs do |date, blogs| %>
   <%= date.day %>
 
   <% blogs.each do |blog| %>

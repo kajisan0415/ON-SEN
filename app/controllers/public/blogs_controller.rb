@@ -32,7 +32,8 @@ before_action :authenticate_user!
     if @blog.update(blog_params)
       redirect_to blog_path(@blog), notice: "You have updated book successfully."
     else
-      render "edit"
+      @user = @blog.user
+      render :edit
     end
   end
 

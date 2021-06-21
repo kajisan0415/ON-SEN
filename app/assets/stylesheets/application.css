@@ -94,6 +94,7 @@ textarea {
     height: 100px;
 }
 
+
 /* Loading背景画面設定　*/
 #splash {
 /*fixedで全面に固定*/
@@ -104,7 +105,6 @@ textarea {
   background-color: rgba( 250, 250, 250, 0.95);
   text-align:center;
 }
-
 
 
 /* Loading画像中央配置　*/

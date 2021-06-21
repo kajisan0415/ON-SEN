@@ -84,9 +84,20 @@
 
 .grid-article {
   transition: .3s;
+  width: 200px;
+  height: 200px;
 }
 
 .grid-article:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 2rem rgba(0,0,0,5);
+}
+
+.grid-article-show {
+  transition: .3s;
+}
+
+.grid-article-show:hover {
   transform: scale(1.1);
   box-shadow: 0 0 2rem rgba(0,0,0,5);
 }

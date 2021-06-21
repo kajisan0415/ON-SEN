@@ -1,5 +1,5 @@
 class Public::ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: [:edit,:update]
+  before_action :authenticate_user!, only: [:edit, :update]
 
   def index
     @articles = Article.all.page(params[:page]).per(16)
@@ -27,12 +27,12 @@ class Public::ArticlesController < ApplicationController
   end
 
   def search
-  @articles = Article.search(params[:keyword]).page(params[:page]).per(16)
-  @keyword = params[:keyword]
-  render "search"
+    @articles = Article.search(params[:keyword]).page(params[:page]).per(16)
+    @keyword = params[:keyword]
+    render "search"
   end
 
-  def ranking #いいね数とスタンプ数のランキング4位までを表示
+  def ranking # いいね数とスタンプ数のランキング4位までを表示
     @all_ranks = Article.find(Favorite.group(:article_id).order('count(article_id) desc').limit(4).pluck(:article_id))
     @stamp_ranks = Article.find(Stamp.group(:article_id).order('count(article_id) desc').limit(4).pluck(:article_id))
   end
@@ -40,28 +40,26 @@ class Public::ArticlesController < ApplicationController
   def mapping
   end
 
-  def googlemap #地図上にピンとそのリンク先を表示、県名を取得できるように
-     @articles = Article.all
-     @prefecture = params[:prefecture]
+  def googlemap # 地図上にピンとそのリンク先を表示、県名を取得できるように
+    @articles = Article.all
+    @prefecture = params[:prefecture]
   end
-private
+
+  private
 
   def article_params
     params.require(:article).permit(:name,
-    :image,
-    :prefecture_code,
-    :address_city,
-    :address_street,
-    :address_building,
-    :site_url,
-    :tax,
-    :opening_hours,
-    :closed,
-    :introduction,
-    :latitude,
-    :longitude
-    )
+                                    :image,
+                                    :prefecture_code,
+                                    :address_city,
+                                    :address_street,
+                                    :address_building,
+                                    :site_url,
+                                    :tax,
+                                    :opening_hours,
+                                    :closed,
+                                    :introduction,
+                                    :latitude,
+                                    :longitude)
   end
-
-
 end

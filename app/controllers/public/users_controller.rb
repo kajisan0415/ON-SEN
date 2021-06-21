@@ -7,9 +7,9 @@ class Public::UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     if @user == current_user
-        render "edit"
+      render "edit"
     else
-        redirect_to user_path(current_user)
+      redirect_to user_path(current_user)
     end
   end
 
@@ -24,16 +24,14 @@ class Public::UsersController < ApplicationController
   end
 
   def favorites
-      @user = User.find_by(params[:id])
+    @user = User.find_by(params[:id])
   end
 
   def calender
     @user = User.find(params[:id])
   end
 
-
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
   end
-
 end

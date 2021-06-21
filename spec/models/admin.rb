@@ -34,5 +34,4 @@ RSpec.describe 'Adminモデルのテスト', type: :model do
       end
     end
   end
-
 end

@@ -1,5 +1,5 @@
 class Public::BlogsController < ApplicationController
-before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def show
     @blog = Blog.find(params[:id])
@@ -17,7 +17,7 @@ before_action :authenticate_user!
       @user = @blog.user
       redirect_to calender_user_path(@user)
     else
-      render :new and return
+      render(:new) && return
     end
   end
 
@@ -45,8 +45,8 @@ before_action :authenticate_user!
   end
 
   private
+
   def blog_params
     params.require(:blog).permit(:title, :image, :body, :memo, :start_time)
   end
-
 end

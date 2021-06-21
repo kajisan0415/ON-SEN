@@ -3,39 +3,38 @@
 require 'rails_helper'
 
 describe '登録、ログインのテスト' do
-
-context 'トップページのテスト' do
-  describe 'トップ画面のテスト' do
-    before do
-    visit root_path
-    end
-
-    context '表示内容の確認' do
-      it 'URLが正しい' do
-        expect(current_path).to eq '/'
+  context 'トップページのテスト' do
+    describe 'トップ画面のテスト' do
+      before do
+        visit root_path
       end
-      it '新規登録画面へのリンクを押下すると新規登録画面が表示される' do
-      visit root_path
-      find(".header-sign-up").click
-      expect(current_path).to eq new_user_registration_path
+
+      context '表示内容の確認' do
+        it 'URLが正しい' do
+          expect(current_path).to eq '/'
+        end
+        it '新規登録画面へのリンクを押下すると新規登録画面が表示される' do
+          visit root_path
+          find(".header-sign-up").click
+          expect(current_path).to eq new_user_registration_path
+        end
       end
     end
   end
-end
 
   describe 'アバウト画面のテスト' do
     before do
       visit about_path
     end
-    
+
     context '表示内容の確認' do
       it 'URLが正しい' do
         expect(current_path).to eq '/about'
       end
     end
   end
-  
-    describe 'ユーザ新規登録のテスト' do
+
+  describe 'ユーザ新規登録のテスト' do
     before do
       visit new_user_registration_path
     end
@@ -64,7 +63,7 @@ end
       end
     end
 
-context '新規登録成功のテスト' do
+    context '新規登録成功のテスト' do
       before do
         fill_in 'user[name]', with: Faker::Lorem.characters(number: 10)
         fill_in 'user[email]', with: Faker::Internet.email
@@ -81,7 +80,7 @@ context '新規登録成功のテスト' do
       end
     end
   end
-  
+
   describe 'ユーザログイン' do
     let(:user) { create(:user) }
 
@@ -122,7 +121,7 @@ context '新規登録成功のテスト' do
         expect(current_path).to eq '/users/' + user.id.to_s
       end
     end
-    
+
     context 'ログイン失敗のテスト' do
       before do
         fill_in 'user[name]', with: ''
@@ -135,5 +134,5 @@ context '新規登録成功のテスト' do
         expect(current_path).to eq '/users/sign_in'
       end
     end
-end
+  end
 end

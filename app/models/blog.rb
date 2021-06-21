@@ -5,5 +5,6 @@ class Blog < ApplicationRecord
     validates :title, presence: true
     validates :memo, length: { maximum: 220 }
     validates :body, length: { maximum: 400 }
-    
+    validates :start_time, presence: true
+
 end

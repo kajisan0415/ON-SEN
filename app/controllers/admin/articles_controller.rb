@@ -1,5 +1,5 @@
 class Admin::ArticlesController < ApplicationController
-before_action :authenticate_admin!
+  before_action :authenticate_admin!
 
   def show
     @article = Article.find(params[:id])
@@ -16,7 +16,7 @@ before_action :authenticate_admin!
     if @article.save
       redirect_to admin_article_path(@article), notice: "You have created book successfully."
     else
-      render :new and return
+      render(:new) && return
     end
   end
 
@@ -40,22 +40,19 @@ before_action :authenticate_admin!
     redirect_to articles_path
   end
 
-private
+  private
 
   def article_params
     params.require(:article).permit(:name,
-    :image,
-    :prefecture_code,
-    :address_city,
-    :address_street,
-    :address_building,
-    :site_url,
-    :tax,
-    :opening_hours,
-    :closed,
-    :introduction
-    )
+                                    :image,
+                                    :prefecture_code,
+                                    :address_city,
+                                    :address_street,
+                                    :address_building,
+                                    :site_url,
+                                    :tax,
+                                    :opening_hours,
+                                    :closed,
+                                    :introduction)
   end
-
-
 end

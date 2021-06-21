@@ -45,7 +45,7 @@ RSpec.describe 'Userモデルのテスト', type: :model do
       end
     end
   end
-  
+
   describe 'アソシエーションのテスト' do
     context 'Blogモデルとの関係' do
       it '1:Nとなっている' do
@@ -53,5 +53,4 @@ RSpec.describe 'Userモデルのテスト', type: :model do
       end
     end
   end
-
 end

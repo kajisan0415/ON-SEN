@@ -1,19 +1,20 @@
 class Article < ApplicationRecord
- has_many :favorites, dependent: :destroy
- has_many :stamps, dependent: :destroy
- belongs_to :admin
- has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :stamps, dependent: :destroy
+  belongs_to :admin
+  has_many :comments, dependent: :destroy
 
- attachment :image
+  attachment :image
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+
   def stamped_by?(user)
     stamps.where(user_id: user.id).exists?
   end
 
-  def self.search(keyword) #温泉名、住所、その他から特定のワードを検索可能にしている
+  def self.search(keyword) # 温泉名、住所、その他から特定のワードを検索可能にしている
     where(["name like? OR introduction like?  OR address_city like?", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"])
   end
 
@@ -26,5 +27,5 @@ class Article < ApplicationRecord
   validates :tax, presence: true
   validates :opening_hours, presence: true
   validates :image, presence: true
-  validates :closed,presence: true
+  validates :closed, presence: true
 end

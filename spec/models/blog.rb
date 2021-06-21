@@ -22,10 +22,10 @@ RSpec.describe 'Blogモデルのテスト', type: :model do
     end
 
     context 'memoカラム' do
-      #it '220文字以下であること: 220文字は〇' do
-        #blog.memo = Faker::Lorem.characters(number: 400)
-        #is_expected.to eq true
-      #end
+      # it '220文字以下であること: 220文字は〇' do
+      # blog.memo = Faker::Lorem.characters(number: 400)
+      # is_expected.to eq true
+      # end
       it '220文字以下であること: 221文字は×' do
         blog.memo = Faker::Lorem.characters(number: 221)
         is_expected.to eq false
@@ -33,12 +33,12 @@ RSpec.describe 'Blogモデルのテスト', type: :model do
     end
 
     context 'bodyカラム' do
-      #it '400文字以下であること: 400文字は〇' do
-        #blog.body = Faker::Lorem.characters(number:400)
-        #is_expected.to eq true
-      #end
+      # it '400文字以下であること: 400文字は〇' do
+      # blog.body = Faker::Lorem.characters(number:400)
+      # is_expected.to eq true
+      # end
       it '400文字以下であること: 401文字は×' do
-        blog.body = Faker::Lorem.characters(number:401)
+        blog.body = Faker::Lorem.characters(number: 401)
         is_expected.to eq false
       end
     end

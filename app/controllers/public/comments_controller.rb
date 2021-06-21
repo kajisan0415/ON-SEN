@@ -13,9 +13,9 @@ class Public::CommentsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
-   private
+  private
 
   def comment_params
-    params.require(:comment).permit(:title,:body,:image,:rate)
+    params.require(:comment).permit(:title, :body, :image, :rate)
   end
 end

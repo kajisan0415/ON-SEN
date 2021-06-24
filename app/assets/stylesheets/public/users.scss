@@ -2,11 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.devise-body {
+  background-image: image-url("826076_l.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .user-show {
    border: 2px solid #ACAAAA;
    width: 79%;
    margin: 0 auto;
    border-radius: 5%;
+   background-color: white;
 }
 
 .user-show-top {
@@ -58,4 +66,20 @@
   width: 300px;
   height: 300px;
   object-fit: cover
+}
+
+.calender-body {
+  background-image: image-url("elooopa_2017102349.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.calender-main {
+  background-color: rgba(250, 250, 250, 0.8);
+  padding: 50px;
+}
+
+.simple-calendar {
+  background-color: white;
 }

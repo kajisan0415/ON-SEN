@@ -2,11 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+ body {
+    margin: 0;
+    padding: 0;
+ }
+
 .mapping-body {
   background-image: image-url("on_037.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  font-family: "Helvetica Neue", "Hiragino Sans", "Hiragino Kaku Gothic ProN","ヒラギノ角ゴ ProN W3", Meiryo, "メイリオ", sans-serif;
+	font-size: 16px;
+	line-height: 1.5em;
+	color: #000000;
 }
 
 
@@ -18,14 +27,24 @@
 }
 
 .article-box {
-  width: 23%;
+  width: 45%;
   margin: 5px;
   border: 1px solid #ACAAAA;
   text-align: center;
-  background-size: cover;
-  background-position: center;
-  background-color: rgba(250, 220, 150, 0.2);
+  background-color: rgba(250, 220, 150, 0.5);
   font-family: Hiragino Sans;
+  display: flex;
+}
+
+.article-box-left {
+  width: 40%;
+  height: 100%;
+}
+
+.article-box-right {
+  width: 60%;
+  height: 100%;
+  line-height: 15px;
 }
 
 .articles-container-text {
@@ -37,7 +56,6 @@
    width: 70%;
    margin: 0 auto;
    background-color: rgba(250, 220, 150, 0.2);
-
 }
 
 .article-show-top {
@@ -97,9 +115,10 @@
 
 .grid-article {
   transition: .3s;
-  width: 80%;
+  width: 100%;
   height: 200px;
   object-fit: cover;
+  margin: 5px;
 }
 
 .grid-article:hover {
@@ -112,6 +131,35 @@
 }
 
 .grid-article-show:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 2rem rgba(0,0,0,5);
+}
+
+.ranking-articles-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.ranking-article-box {
+  width: 23%;
+  margin: 5px;
+  border: 1px solid #ACAAAA;
+  text-align: center;
+  background-color: rgba(250, 220, 150, 0.2);
+  font-family: Hiragino Sans;
+  line-height: 15px;
+}
+
+.ranking-grid-article {
+  transition: .3s;
+  width: 80%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.ranking-grid-article:hover {
   transform: scale(1.1);
   box-shadow: 0 0 2rem rgba(0,0,0,5);
 }

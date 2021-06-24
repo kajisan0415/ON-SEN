@@ -13,10 +13,7 @@
 <div class= "articles-container">
   <% @articles.each do |article| %>
     <div class="article-box">
-      <!--温泉名-->
-      <p><%= article.name %></p>
-      <!--住所-->
-      <p><%= article.address_city %></p>
+      <div class="article-box-left">
       <!--画像、リンク先は管理者側とエンドユーザ側で分ける-->
       <% if admin_signed_in? %>
         <%= link_to admin_article_path(article) do %>
@@ -27,6 +24,12 @@
         <%= attachment_image_tag article, :image, class: 'grid-article article-image' %>
         <% end %>
       <% end %>
+      </div>
+      <div class="article-box-right">
+      <!--温泉名-->
+      <p><%= article.name %></p>
+      <!--住所-->
+      <p><%= article.address_city %></p>
       <!--総合評価-->
       <div id="star-rate-<%= article.id %>"></div>
         <script>
@@ -40,8 +43,11 @@
             score: <%= article.comments.average(:rate).to_f.round(1) %>,
           });
         </script>
+      <p>営業時間:<%= article.opening_hours %></p>
+      <p>定休日:<%= article.closed %></p>
       <!--コメント数-->
       <p>コメント件数：<%= article.comments.count %></p>
+    </div>
     </div>
   <% end %>
 </div>

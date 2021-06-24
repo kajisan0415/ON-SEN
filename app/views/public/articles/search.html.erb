@@ -5,6 +5,8 @@
     <div class="article-box">
       <!--名前-->
       <p><%= article.name %></p>
+      <!--住所-->
+      <p><%= article.address_city %></p>
       <!--画像、リンク先は管理者側とエンドユーザ側で分ける-->
       <% if admin_signed_in? %>
         <%= link_to admin_article_path(article) do %>

@@ -36,8 +36,13 @@
     </div>
 
     <div class="form-group">
+        <p><%= f.label :定休日 %>
+        <%= f.text_field :closed, autofocus: true, class: "closed" %></p>
+     </div>
+
+    <div class="form-group">
         <p><%= f.label :その他 %>
-        <%= f.text_area :introduction, autofocus: true, placeholder: "説明文を記述", class: "introduction" %></p>
+        <%= f.text_area :introduction, autofocus: true, placeholder: "サウナの有無、駐車場の有無などを記載", class: "introduction" %></p>
     </div>
 
     <div class="form-group">

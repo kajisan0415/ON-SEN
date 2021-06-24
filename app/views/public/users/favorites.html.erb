@@ -1,9 +1,11 @@
-<h2>いいね一覧</h2>
+<h2>行きたいリスト</h2>
 <div class= "articles-container">
   <!--いいね一覧を表示-->
 <% @user.favorite_articles.each do |article| %>
   <div class="article-box">
     <p><%= article.name %></p>
+    <!--住所-->
+      <p><%= article.address_city %></p>
     <!--画像、リンク先は管理者側とエンドユーザ側で分ける-->
     <% if admin_signed_in? %>
       <%= link_to admin_article_path(article) do %>

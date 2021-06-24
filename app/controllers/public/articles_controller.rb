@@ -8,7 +8,7 @@ class Public::ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @comment = Comment.new
-    @comments = @article.comments.page(params[:page]).per(10)
+    @comments = @article.comments.page(params[:page]).per(10).order(id: "DESC")
     gon.article = @article
   end
 
@@ -41,8 +41,8 @@ class Public::ArticlesController < ApplicationController
   end
 
   def googlemap # 地図上にピンとそのリンク先を表示、県名を取得できるように
-    @articles = Article.all
     @prefecture = params[:prefecture]
+    @articles = Article.all
   end
 
   private

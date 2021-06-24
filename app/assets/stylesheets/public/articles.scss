@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.mapping-body {
+  background-image: image-url("on_037.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
 .articles-container {
   display: flex;
   flex-wrap: wrap;
@@ -10,22 +18,26 @@
 }
 
 .article-box {
-  width: 18%;
+  width: 23%;
   margin: 5px;
-  padding: 0 30px;
-  border: 2px solid #ACAAAA;
+  border: 1px solid #ACAAAA;
   text-align: center;
   background-size: cover;
   background-position: center;
-  border-radius: 5%;
+  background-color: rgba(250, 220, 150, 0.2);
+  font-family: Hiragino Sans;
+}
+
+.articles-container-text {
+  font-family: Hiragino Sans;
 }
 
 .article-show {
    border: 2px solid #ACAAAA;
-   background-size: cover;
    width: 70%;
    margin: 0 auto;
-   border-radius: 5%;
+   background-color: rgba(250, 220, 150, 0.2);
+
 }
 
 .article-show-top {
@@ -41,13 +53,14 @@
   display: flex;
   margin: 0 auto;
   text-align: center;
-  margin-left: 130px;
+  justify-content: center;
   margin-top: 20px;
   width: auto;
 }
 
 .article-show-image-contents {
-  margin-left: 100px;
+  margin-left: 50px;
+  margin-top: 30px;
 }
 
 .favorite-btn{
@@ -84,8 +97,9 @@
 
 .grid-article {
   transition: .3s;
-  width: 200px;
+  width: 80%;
   height: 200px;
+  object-fit: cover;
 }
 
 .grid-article:hover {

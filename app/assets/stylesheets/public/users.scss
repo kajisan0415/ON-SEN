@@ -2,9 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.user-show {
+   border: 2px solid #ACAAAA;
+   width: 79%;
+   margin: 0 auto;
+   border-radius: 5%;
+}
+
 .user-show-top {
-  margin-left: 60px;
   display: flex;
+  justify-content: center;
 }
 
 .user-show-top-left {
@@ -13,7 +20,7 @@
 }
 
 .user-show-top-right {
-  margin-left: 60px;
+  margin-left: 40px;
 }
 
 .user-show-introduction {
@@ -32,6 +39,7 @@
   margin: 0 auto;
   margin-top: 30px;
   margin-bottom: 20px;
+  justify-content: center;
 }
 
 .user-show-empty {
@@ -40,4 +48,14 @@
 
 .word-break {
   word-break: break-word;
+}
+
+.user-profile {
+  width: 100%;
+
+}
+.user-profile-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover
 }

@@ -1,9 +1,9 @@
-<div class="article-show">
+<div class="user-show">
   <div class="user-profile">
     <div class="user-show-top">
       <!--プロフィール画像を表示-->
       <div class="user-show-top-left">
-        <%= attachment_image_tag(@user, :profile_image, :fill, 300, 300, fallback: "My Post (11).png", size:'300x300') %>
+        <%= attachment_image_tag @user, :profile_image, fallback: "My Post (11).png", class: "user-profile-image" %>
       </div>
       <div class="user-show-top-right">
         <h1><%= @user.name %></h1>
@@ -40,11 +40,11 @@
           <!--画像、リンク先は管理者側とエンドユーザ側で分ける-->
           <% if admin_signed_in? %>
             <%= link_to admin_article_path(article) do %>
-              <%= attachment_image_tag article, :image, :fill, 103, 103, class: 'grid-article-show' %>
+              <%= attachment_image_tag article, :image, :fill, 100, 100, class: 'grid-article-show' %>
             <% end %>
           <% else %>
             <%= link_to article_path(article) do %>
-              <%= attachment_image_tag article, :image, :fill, 103, 103, class: 'grid-article-show' %>
+              <%= attachment_image_tag article, :image, :fill, 100, 100, class: 'grid-article-show' %>
             <% end %>
           <% end %>
         </div>

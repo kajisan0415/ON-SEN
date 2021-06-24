@@ -1,14 +1,25 @@
 @charset "UTF-8";
 /* CSS Document */
 
-.map-body {
+
+.map-main {
   font-family: "Helvetica Neue", "Hiragino Sans", "Hiragino Kaku Gothic ProN","ヒラギノ角ゴ ProN W3", Meiryo, "メイリオ", sans-serif;
 	font-size: 16px;
 	line-height: 1.5em;
 	color: #000000;
-	background-color: white;
-	padding: 40px ;
+	background-color: rgba(250, 250, 250, 0.8);
+	padding: 40px 10px ;
+	width: 100%;
+	margin: 0 auto;
 }
+
+.map-main-title {
+	margin-left: 60px;
+	font-family: Helvetica;
+}
+
+
+
 img {
 	vertical-align: bottom;
 }
@@ -53,7 +64,7 @@ a:hover {
 	transition: 0.2s;
 }
 #japan-map div div.area div:hover {
-	background-color: red;
+	background-color: black;
 	transition: 0.2s;
 }
 
@@ -80,7 +91,7 @@ a:hover {
 	left: 638px;
 }
 #hokkaido-touhoku div.area div {
-	background-color: black;
+	background-color: #4891b2;
 	color: #ffffff;
 }
 
@@ -138,7 +149,7 @@ a:hover {
 	z-index: 2;
 }
 #kantou div.area div {
-	background-color: black;
+	background-color: #149195;
 	color: #ffffff;
 }
 #ibaraki {
@@ -194,7 +205,7 @@ a:hover {
 	top: 223px;
 }
 #tyubu div.area div {
-	background-color: black;
+	background-color: #1f9a48;;
 	color: #ffffff;
 }
 
@@ -260,7 +271,7 @@ a:hover {
 	top: 223px;
 }
 #kinki div.area div {
-	background-color: black;
+	background-color: #91c441;
 	color: #ffffff;
 }
 
@@ -315,7 +326,7 @@ a:hover {
 	top: 223px;
 }
 #tyugoku div.area div {
-	background-color: black;
+	background-color: #c3b44f;
 	color: #ffffff;
 }
 #tottori {
@@ -356,7 +367,7 @@ a:hover {
 	top: 350px;
 }
 #shikoku div.area div {
-	background-color: black;
+	background-color: #cd9e32;
 	color: #ffffff;
 }
 #kagawa {
@@ -392,7 +403,7 @@ a:hover {
 	top: 235px;
 }
 #kyusyu div.area div {
-	background-color: black;
+	background-color: #ee7471;
 	color: #ffffff;
 }
 #fukuoka {
@@ -535,6 +546,5 @@ a:hover {
 	width: 100%;
 	padding: 0.5em 0.3em 0.5em 0.3em;
 }
-
 
 } /* レスポンシブ max-500px */

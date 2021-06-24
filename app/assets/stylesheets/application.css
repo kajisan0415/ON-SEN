@@ -13,18 +13,14 @@
  *= require_tree .
  *= require_self
  */
- body {
-   margin: 0;
-   padding: 0;
- }
 
  main {
-
   width: 80%;
   margin: 0 auto;
-  padding: 50px 20px 20px 50px;
+  padding: 20px 20px 20px 50px;
   margin-bottom: 70px;
   background-size: cover;
+  margin-top: 30px;
  }
 
  header {
@@ -67,6 +63,7 @@
     text-align: center;
     padding-bottom: 30px;
     border-radius: 2%;
+    background-color: rgba(250, 250, 250, 0.8);
 }
 
 .sign-up-title {
@@ -136,3 +133,4 @@ opacity: 1;
   transform: translateY(0);
   }
 }
+

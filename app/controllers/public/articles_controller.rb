@@ -2,13 +2,13 @@ class Public::ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update]
 
   def index
-    @articles = Article.all.page(params[:page]).per(16)
+    @articles = Article.all.page(params[:page]).per(8)
   end
 
   def show
     @article = Article.find(params[:id])
     @comment = Comment.new
-    @comments = @article.comments.page(params[:page]).per(10)
+    @comments = @article.comments.page(params[:page]).per(10).order(id: "DESC")
     gon.article = @article
   end
 
@@ -27,7 +27,7 @@ class Public::ArticlesController < ApplicationController
   end
 
   def search
-    @articles = Article.search(params[:keyword]).page(params[:page]).per(16)
+    @articles = Article.search(params[:keyword]).page(params[:page]).per(8)
     @keyword = params[:keyword]
     render "search"
   end
@@ -41,8 +41,8 @@ class Public::ArticlesController < ApplicationController
   end
 
   def googlemap # 地図上にピンとそのリンク先を表示、県名を取得できるように
-    @articles = Article.all
     @prefecture = params[:prefecture]
+    @articles = Article.all
   end
 
   private

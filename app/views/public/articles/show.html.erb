@@ -20,7 +20,7 @@
       <div class="favorite-btn"><%= render "public/favorites/favorite-btn", article: @article %></div>
     <% end %>
   </div>
-  
+
   <div class="article-show-image">
     <!--写真-->
     <%= attachment_image_tag(@article, :image, :fill, 250, 250) %>
@@ -69,26 +69,26 @@
 <style>
 #map {
   height: 300px;
-  width: 300px;
+  width: 400px;
 }
 </style>
 
 <script>
   let map;
-  
+
   function initMap(){
   //マップを表示
     geocoder = new google.maps.Geocoder()
-  
+
     map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: <%= @article.latitude %>, lng: <%= @article.longitude %>},
       zoom: 12,
     });
-  
+
   //住所から緯度経度を割り出しマップにピンで表示
     (function(){
       var contentString = "住所：<%= @article.address_city %>";
-  
+
       var marker = new google.maps.Marker({
           position:{lat: <%= @article.latitude %>, lng: <%= @article.longitude %>},
           map: map,

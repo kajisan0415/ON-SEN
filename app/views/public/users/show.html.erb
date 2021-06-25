@@ -10,15 +10,15 @@
         <!--スタンプ数に応じてランクづけされるように設定-->
         <h2>温泉Lv.<%= @user.stamped_articles.count %></h2>
         <% if @user.stamped_articles.count <= 10 %>
-        <h2>ランク：温泉ビギナー</h2>
+        <h2 class="user-rank-first">ランク：温泉ビギナー</h2>
         <% elsif @user.stamped_articles.count <= 30 %>
-        <h2>ランク：温泉好き</h2>
+        <h2 class="user-rank-second">ランク：温泉好き</h2>
         <% elsif @user.stamped_articles.count <= 50 %>
-        <h2>ランク：温泉師匠</h2>
+        <h2 class="user-rank-third">ランク：温泉師匠</h2>
         <% elsif @user.stamped_articles.count <= 75 %>
-        <h2>ランク：温泉マスター</h2>
+        <h2 class="user-rank-fourth">ランク：温泉マスター</h2>
         <% elsif @user.stamped_articles.count >= 100 %>
-        <h2>温泉ゴッド</h2>
+        <h2 class="user-rank-fifth">温泉ゴッド</h2>
         <% end %>
         <!--カレンダーページにリンク-->
         <h3><%= link_to '温泉の記録', calender_user_path(@user) %></h3>

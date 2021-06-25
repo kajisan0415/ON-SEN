@@ -24,6 +24,7 @@
   flex-wrap: wrap;
   margin: 0 auto;
   width: 100%;
+  justify-content: center;
 }
 
 .article-box {
@@ -55,7 +56,7 @@
    border: 2px solid #ACAAAA;
    width: 70%;
    margin: 0 auto;
-   background-color: rgba(250, 220, 150, 0.2);
+   background-color: rgba(250, 220, 150, 0.4);
 }
 
 .article-show-top {
@@ -89,6 +90,17 @@
   padding-top: 50px;
   margin: 0 auto;
   font-size: 20px;
+  width: 70%;
+  text-align: center;
+}
+
+.article-show-information-left {
+  width: 30%;
+}
+
+.article-show-information-right {
+  width: 80%;
+  word-break: break-word;
 }
 
 .article-show-edit {
@@ -140,6 +152,7 @@
   flex-wrap: wrap;
   margin: 0 auto;
   width: 100%;
+  justify-content: center;
 }
 
 .ranking-article-box {
@@ -147,7 +160,7 @@
   margin: 5px;
   border: 1px solid #ACAAAA;
   text-align: center;
-  background-color: rgba(250, 220, 150, 0.2);
+  background-color: rgba(250, 220, 150, 0.5);
   font-family: Hiragino Sans;
   line-height: 15px;
 }

@@ -13,8 +13,7 @@
    border: 2px solid #ACAAAA;
    width: 79%;
    margin: 0 auto;
-   border-radius: 5%;
-   background-color: white;
+   background-color: rgba(250, 220, 150, 0.4);
 }
 
 .user-show-top {
@@ -52,6 +51,28 @@
 
 .user-show-empty {
   height: 90px;
+}
+
+.user-rank-first {
+  background-color: green;
+  color: white;
+}
+
+.user-rank-second {
+  background-color: blue;
+  color: white;
+}
+.user-rank-third {
+  background-color: brown;
+  color: white;
+}
+.user-rank-fourth {
+  background-color: silver;
+  color: white;
+}
+.user-rank-fifth {
+  background-color: gold;
+  color: white;
 }
 
 .word-break {

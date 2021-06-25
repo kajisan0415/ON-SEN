@@ -23,8 +23,8 @@ class Article < ApplicationRecord
 
   validates :address_city, presence: true
   validates :name, presence: true, uniqueness: true
-  validates :introduction, presence: true
-  validates :tax, presence: true
+  validates :introduction, presence: true, length: { maximum: 100, minimum: 2 }
+  validates :tax, presence: true, length: { maximum: 60, minimum: 2 }
   validates :opening_hours, presence: true
   validates :image, presence: true
   validates :closed, presence: true

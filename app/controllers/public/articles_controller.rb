@@ -2,7 +2,7 @@ class Public::ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update]
 
   def index
-    @articles = Article.all.page(params[:page]).per(8)
+    @articles = Article.all.page(params[:page]).per(8).order(id: "DESC")
   end
 
   def show
@@ -27,7 +27,7 @@ class Public::ArticlesController < ApplicationController
   end
 
   def search
-    @articles = Article.search(params[:keyword]).page(params[:page]).per(8)
+    @articles = Article.search(params[:keyword]).page(params[:page]).per(8).order(id: "DESC")
     @keyword = params[:keyword]
     render "search"
   end

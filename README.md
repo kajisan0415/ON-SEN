@@ -30,7 +30,7 @@ https://drive.google.com/file/d/1ngqOPSQvTQ76f-J2AZzQIOquz2Bxrns-/view?usp=shari
 #### <テーブル定義書>
 [データベース.pdf(ポートフォリオ).pdf](https://github.com/kajisan0415/ON-SEN/files/6713905/pdf.pdf)
 #### <アプリケーション詳細設計>
-[application_design (ポートフォリオ2).pdf](https://github.com/kajisan0415/ON-SEN/files/6603703/application_design.2.pdf)
+[アプリケーション詳細設計.pdf(ポートフォリオオリジナル).pdf](https://github.com/kajisan0415/ON-SEN/files/6713910/pdf.pdf)
 
 ## チャレンジ要素一覧
 

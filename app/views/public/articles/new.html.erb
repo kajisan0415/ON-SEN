@@ -1,8 +1,8 @@
 <%= render 'layouts/errors', obj: @article %>
 <div class="devise-container">
 <!--新規登録フォーム-->
-<h1>新規投稿(管理者側)</h1>
-<%= form_with model: @article,url: admin_articles_path,local: true do |f| %>
+<h1>新規投稿</h1>
+<%= form_with model: @article,url: articles_path,local: true do |f| %>
   <table>
     <div class="form-group">
         <p><%= f.label :外観写真 %>

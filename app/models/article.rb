@@ -1,7 +1,7 @@
 class Article < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :stamps, dependent: :destroy
-  belongs_to :admin
+  belongs_to :user
   has_many :comments, dependent: :destroy
 
   attachment :image

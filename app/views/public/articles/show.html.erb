@@ -59,8 +59,10 @@
       <td class="article-show-information-left">その他</td>
       <td class="article-show-information-right"><%= @article.introduction %></td>
     </tr>
-    <td></td>
+    <% if @article.user == current_user %>
     <td><%= link_to '編集', edit_article_path(@article), class: "article-show-edit" %></td>
+    <td><%= link_to '削除', article_path(@article), method: :delete, data: { confirm: '本当に消しますか？' } %></td>
+    <% end %>
   </table>
 
 <!--googlemap表示-->

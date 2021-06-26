@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :admin do
-    resources :articles, only: [:new, :create, :edit, :update, :show, :destroy] do
+    resources :articles, only: [:edit, :update, :show, :destroy] do
     end
   end
 
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       get :favorites, on: :member
       get :calender, on: :member
     end
-    resources :articles, only: [:index, :edit, :update, :show] do
+    resources :articles do
       resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
       resource :stamps, only: [:create, :destroy]

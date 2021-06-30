@@ -17,11 +17,9 @@
 また、自分が知らない温泉、他の人のおすすめの温泉をもっと知りたいと思ったのも理由の一つです。
 
 ### ターゲットユーザ
-
 温泉好きの一般ユーザー
 
 ### 主な利用シーン
-
 自分のおすすめの温泉の情報をシェアしたいとき、近くの温泉を探すとき、どこの温泉にいったか記録するとき
 
 ## 設計書
@@ -30,7 +28,7 @@ https://drive.google.com/file/d/1ngqOPSQvTQ76f-J2AZzQIOquz2Bxrns-/view?usp=shari
 #### <テーブル定義書>
 [データベース.pdf(ポートフォリオ).pdf](https://github.com/kajisan0415/ON-SEN/files/6713905/pdf.pdf)
 #### <アプリケーション詳細設計>
-[アプリケーション詳細設計.pdf(ポートフォリオオリジナル).pdf](https://github.com/kajisan0415/ON-SEN/files/6713910/pdf.pdf)
+[アプリケーション詳細設計 (ポートフォリオ).pdf](https://github.com/kajisan0415/ON-SEN/files/6722535/default.pdf)
 
 ## チャレンジ要素一覧
 

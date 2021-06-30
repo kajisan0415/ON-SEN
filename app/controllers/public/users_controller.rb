@@ -24,7 +24,7 @@ class Public::UsersController < ApplicationController
   end
 
   def favorites
-    @user = User.find_by(params[:id])
+    @user = User.find(params[:id])
   end
 
   def calender

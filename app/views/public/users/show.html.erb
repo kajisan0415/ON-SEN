@@ -22,9 +22,9 @@
         <% end %>
         <!--カレンダーページにリンク-->
         <h3><%= link_to '温泉の記録', calender_user_path(@user) %></h3>
-        <h3><%= link_to '行きたいリスト', favorites_user_path %></h3>
         <!--ログインユーザーのみ編集可能-->
         <% if @user.id == current_user.id %>
+        <h3><%= link_to '行きたいリスト', favorites_user_path(@user) %></h3>
         <p><%= link_to 'プロフィール編集', edit_user_path(@user) %></p>
         <% end %>
       </div>

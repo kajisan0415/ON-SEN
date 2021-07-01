@@ -57,7 +57,7 @@
       <td class="article-show-information-left">スタンプ数</td>
       <td class="article-show-information-right"><%= @article.stamps.count %></td>
     </tr>
-      <td><%= link_to '編集', edit_admin_article_path(@article) %></td>
+      <td></td>
       <td><%= link_to '削除', admin_article_path(@article), method: :delete, data: { confirm: '本当に消しますか？' } %></td>
   </table>
 

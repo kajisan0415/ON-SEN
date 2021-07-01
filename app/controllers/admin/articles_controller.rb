@@ -6,19 +6,6 @@ class Admin::ArticlesController < ApplicationController
     gon.article = @article
   end
 
-  def edit
-    @article = Article.find(params[:id])
-  end
-
-  def update
-    @article = Article.find(params[:id])
-    if @article.update(article_params)
-      redirect_to admin_article_path(@article), notice: "You have updated book successfully."
-    else
-      render "edit"
-    end
-  end
-
   def destroy
     @article = Article.find(params[:id])
     @article.destroy

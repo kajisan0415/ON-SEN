@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    attributes:
+      article:
+        image: "外観写真"
+        name: "温泉名"
+        address_city: "住所"
+        tax: "料金説明"
+        opening_hours: "営業時間"
+        closed: "定休日"
+        introduction: "説明"
+  models:
+    article: "温泉情報"

@@ -82,3 +82,5 @@ gem 'gon'
 gem 'geocoder'
 
 gem 'rubocop-airbnb'
+
+gem 'rails-i18n'

@@ -22,6 +22,7 @@
       <%= f.submit "プロフィールを更新" ,class: 'btn btn-sm btn-success' %>
     </div>
   </table>
+  <p><%= link_to 'ログイン情報変更', edit_user_registration_path(current_user) %></p>
   <p><%= link_to '戻る', user_path(current_user) %></p>
 <% end %>
 </div>

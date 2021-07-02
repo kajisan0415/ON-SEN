@@ -11,11 +11,11 @@ class Public::ArticlesController < ApplicationController
     @comments = @article.comments.page(params[:page]).per(10).order(id: "DESC")
     gon.article = @article
   end
-  
-  def new 
+
+  def new
     @article = Article.new
   end
-  
+
   def create
     @article = Article.new(article_params)
     @article.user_id = current_user.id
@@ -39,13 +39,12 @@ class Public::ArticlesController < ApplicationController
       render "edit"
     end
   end
-  
+
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
     redirect_to articles_path
   end
-
 
   def search
     @articles = Article.search(params[:keyword]).page(params[:page]).per(8).order(id: "DESC")
@@ -57,7 +56,7 @@ class Public::ArticlesController < ApplicationController
     @all_ranks = Article.find(Favorite.group(:article_id).order('count(article_id) desc').limit(4).pluck(:article_id))
     @stamp_ranks = Article.find(Stamp.group(:article_id).order('count(article_id) desc').limit(4).pluck(:article_id))
   end
-  
+
   def mapping
   end
 

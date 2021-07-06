@@ -25,6 +25,7 @@ class Public::UsersController < ApplicationController
 
   def favorites
     @user = User.find(params[:id])
+    @articles = @user.favorite_articles.page(params[:page]).per(8).order(id: "DESC")
   end
 
   def calender

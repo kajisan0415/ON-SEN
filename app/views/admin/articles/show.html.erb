@@ -1,7 +1,7 @@
 <div class="article-show">
   <div class="article-show-top">
+    <!--温泉名-->
     <h1 class="article-show-title"><%= @article.name %></h1>
-
     <!--レビュー総合評価-->
     <div id="star-rate-<%= @article.id %>">総合評価　</div>
       <script>
@@ -15,9 +15,8 @@
         score: <%= @article.comments.average(:rate).to_f.round(1) %>,
       });
       </script>
-
   </div>
-  <div class="admin-article-show-image"><!---->
+  <div class="admin-article-show-image">
     <%= attachment_image_tag(@article, :image, :fill, 500, 300) %>
   </div>
 
@@ -46,7 +45,7 @@
       <td class="article-show-information-right"><%= @article.closed %></td>
     </tr>
     <tr>
-      <td class="article-show-information-left">その他</td>
+      <td class="article-show-information-left">説明</td>
       <td class="article-show-information-right"><%= @article.introduction %></td>
     </tr>
     <tr>

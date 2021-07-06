@@ -10,3 +10,5 @@
 <p><%= link_to 'ランキングページへ', ranking_path,class:"fas fa-crown" %></p>
 
 <%= render 'layouts/index', articles: @articles %>
+
+<div class="pagenate"><%= paginate @articles %></div>

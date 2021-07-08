@@ -32,6 +32,10 @@
   margin-top: -25px;
 }
 
+p {
+  word-break: break-word;
+}
+
 .navbar-right {
   display: flex;
   list-style: none;

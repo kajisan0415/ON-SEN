@@ -10,6 +10,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <body>
   <!--ホーム画面でロード画面を表示-->
   <% if current_page?(root_path) %>
     <div id="splash">
@@ -18,7 +19,6 @@
     <%= render 'layouts/header' %>
     <%= yield %>
   <% else %>
-  <body>
     <%= render 'layouts/header' %>
     <main><%= yield %></main>
   </body>

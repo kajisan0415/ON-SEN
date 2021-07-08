@@ -22,22 +22,22 @@
 
     <div class="form-group">
         <p><%= f.label :公式サイト %>
-        <%= f.text_field :site_url, autofocus: true, class: "site_url" %></p>
+        <%= f.text_field :site_url, autofocus: true, placeholder: "https://www.example.com/", class: "site_url" %></p>
     </div>
 
     <div class="form-group">
         <p><%= f.label :料金説明 %>
-        <%= f.text_area :tax, autofocus: true, class: "tax" %></p>
+        <%= f.text_area :tax, autofocus: true, placeholder: "例:平日大人¥800,子供¥400", class: "tax" %></p>
     </div>
 
     <div class="form-group">
         <p><%= f.label :営業時間 %>
-        <%= f.text_field :opening_hours, autofocus: true, class: "opening_hours" %></p>
+        <%= f.text_field :opening_hours, autofocus: true, placeholder: "例:AM10:00~PM11:00", class: "opening_hours" %></p>
     </div>
 
     <div class="form-group">
         <p><%= f.label :定休日 %>
-        <%= f.text_field :closed, autofocus: true, class: "closed" %></p>
+        <%= f.text_field :closed, autofocus: true, placeholder: "例:毎週火曜日",  class: "closed" %></p>
      </div>
 
     <div class="form-group">

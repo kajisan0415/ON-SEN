@@ -30,7 +30,7 @@
     </tr>
     <tr>
       <td class="article-show-information-left">公式サイト</td>
-      <td class="article-show-information-right"><%= @article.site_url %></td>
+      <td class="article-show-information-right"><%= Rinku.auto_link(@article.site_url, :all, 'target="_blank"').html_safe %></td>
     </tr>
     <tr>
       <td class="article-show-information-left">料金説明</td>

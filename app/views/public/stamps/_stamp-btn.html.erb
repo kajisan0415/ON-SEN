@@ -1,7 +1,7 @@
   <% if article.stamped_by?(current_user) %>
   <!--スタンプを押してある画像-->
-    <p><%=link_to (image_tag 'My Post (3).png', :size =>'200x200'),article_stamps_path(article.id), method: :delete, remote: true %></p>
+    <p><%=link_to (image_tag 'My Post (3).png', :size =>'250x250'),article_stamps_path(article.id), method: :delete, remote: true %></p>
   <% else %>
   <!--スタンプを押していない画像-->
-    <p><%=link_to (image_tag 'My Post (5).png', :size =>'200x200'), article_stamps_path(article.id), method: :post, remote: true %></p>
+    <p><%=link_to (image_tag 'My Post (5).png', :size =>'250x250'), article_stamps_path(article.id), method: :post, remote: true %></p>
   <% end %>

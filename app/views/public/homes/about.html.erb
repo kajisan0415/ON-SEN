@@ -1,11 +1,53 @@
-<div class="about">
-  <div class="about-image">
-    <div class="nil"></div>
+<body class="about-body">
+
     <div class="about-introduction">
     温泉についての情報をユーザー同士で共有するアプリケーションです。<br>
     情報の共有だけでなく、自分が行った温泉の記録を残したり、<br>
     近くの温泉を検索できたりとさまざまな機能を備えております。<br>
     </div>
+  
+<div class="sign-up about-container">
+  <div class="about-container-left">
+    <h2>会員登録</h2>
+    <p>会員登録を行っていただくことで、<br>
+    投稿、いいね、コメント、記録等の機能をお使いいただけます。<br>
+    ※会員登録を行わなくても記事の閲覧、検索は可能です。</p>
+    <p>会員登録はこちら  <%= link_to "新規登録", new_user_registration_path %></p>
   </div>
-  <p>会員登録はこちら  <%= link_to "新規登録", new_user_registration_path %></p>
+  <div class="about-container-right">
+    <%= image_tag 'signup.png', :size => '300x350' %>
+  </div>
 </div>
+<div class="post about-container">
+  <div class="about-container-left">
+    <%= image_tag 'post.png', :size => '400x300' %>
+  </div>
+  <div class="about-container-right">
+    <h2>投稿機能</h2>
+    <p>あなたがいった温泉の情報を投稿することができます。<br>
+    また、他の方の投稿も閲覧できます。<br>
+    行ってみたい温泉をチェックしたり、行った温泉にスタンプを押したり、<br>
+    コメントすることも可能です。</p>
+  </div>
+</div>
+<div class="map-search about-container">
+  <div class="about-container-left">
+    <h2>マップ検索</h2>
+    <p>地図から行きたい温泉を選んで銭湯や日帰り温泉を探せます。
+    </p>
+  </div>
+  <div class="about-container-right">
+    <%= image_tag 'map-search.gif', :size => '400x300' %>
+  </div>
+</div>
+<div class="diary about-container">
+  <div class="about-container-left">
+    <%= image_tag 'diary.png', :size => '400x300' %>
+  </div>
+  <div class="about-container-right">
+    <h2>記録機能</h2>
+    <p>いつどこの温泉に行ったかを記録できます。<br>
+    日記感覚で自分が撮った写真や感想、メモを記録できます。</p>
+  </div>
+</div>
+</body>

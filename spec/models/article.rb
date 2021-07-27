@@ -27,37 +27,9 @@ RSpec.describe 'Articleモデルのテスト', type: :model do
       end
     end
 
-    context 'introductionカラム' do
-      it '空欄でないこと' do
-        article.introduction = ''
-        is_expected.to eq false
-      end
-    end
-
-    context 'taxカラム' do
-      it '空欄でないこと' do
-        article.tax = ''
-        is_expected.to eq false
-      end
-    end
-
-    context 'opening_hoursカラム' do
-      it '空欄でないこと' do
-        article.opening_hours = ''
-        is_expected.to eq false
-      end
-    end
-
     context 'imageカラム' do
       it '空欄でないこと' do
         article.image_id = ''
-        is_expected.to eq false
-      end
-    end
-
-    context 'closedカラム' do
-      it '空欄でないこと' do
-        article.closed = ''
         is_expected.to eq false
       end
     end

@@ -17,55 +17,46 @@
       </script>
   </div>
   <div class="admin-article-show-image">
-    <%= attachment_image_tag(@article, :image, :fill, 500, 300) %>
+    <%= attachment_image_tag(@article, :image, :fill, 800, 400) %>
   </div>
 
 <!--情報一覧-->
-  <table class="article-show-information">
-    <tr>
-      <td class="article-show-information-left">住所</td>
-      <td class="article-show-information-right">
+<div class="information-container">
+  <dl class="article-show-information">
+      <dt class="article-show-information-left">住所</td>
+      <dd class="article-show-information-right">
         <%= @article.address_city %>
-      </td>
-    </tr>
-    <tr>
-      <td class="article-show-information-left">公式サイト</td>
-      <td class="article-show-information-right"><%= Rinku.auto_link(@article.site_url, :all, 'target="_blank"').html_safe %></td>
-    </tr>
-    <tr>
-      <td class="article-show-information-left">料金説明</td>
-      <td class="article-show-information-right"><%= @article.tax %></td>
-    </tr>
-    <tr>
-      <td class="article-show-information-left">営業時間</td>
-      <td class="article-show-information-right"><%= @article.opening_hours %></td>
-    </tr>
-    <tr>
-      <td class="article-show-information-left">定休日</td>
-      <td class="article-show-information-right"><%= @article.closed %></td>
-    </tr>
-    <tr>
-      <td class="article-show-information-left">説明</td>
-      <td class="article-show-information-right"><%= @article.introduction %></td>
-    </tr>
-    <tr>
-      <td class="article-show-information-left">いいね数</td>
-      <td class="article-show-information-right"><%= @article.favorites.count %></td>
-    </tr>
-    <tr>
-      <td class="article-show-information-left">スタンプ数</td>
-      <td class="article-show-information-right"><%= @article.stamps.count %></td>
-    </tr>
-      <td></td>
-      <td><%= link_to '削除', admin_article_path(@article), method: :delete, data: { confirm: '本当に消しますか？' } %></td>
-  </table>
+      <dt class="article-show-information-left">公式サイト</td>
+      <dd class="article-show-information-right"><%= Rinku.auto_link(@article.site_url, :all, 'target="_blank"').html_safe %></td>
 
+      <dt class="article-show-information-left">料金説明</td>
+      <dd class="article-show-information-right"><%= @article.tax %></td>
+
+      <dt class="article-show-information-left">営業時間</td>
+      <dd class="article-show-information-right"><%= @article.opening_hours %></td>
+
+      <dt class="article-show-information-left">定休日</td>
+      <dd class="article-show-information-right"><%= @article.closed %></td>
+  
+      <dt class="article-show-information-left">説明</td>
+      <dd class="article-show-information-right"><%= @article.introduction %></td>
+      
+      <dt class="article-show-information-left">いいね数</td>
+      <dd class="article-show-information-right"><%= @article.favorites.count %></td>
+      
+      <dt class="article-show-information-left">スタンプ数</td>
+      <dd class="article-show-information-right"><%= @article.stamps.count %></td>
+  </dl>
+  <div class="admin-article-delete">
+    <%= link_to '削除', admin_article_path(@article), method: :delete, data: { confirm: '本当に消しますか？' } %>
+  </div>
+      
 <!--googlemap表示　-->
 <div id='map' data-no-turbolink></div>
 <style>
 #map {
-  height: 300px;
-  width: 400px;
+  height: 400px;
+  width: 700px;
 }
 </style>
 

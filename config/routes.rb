@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
       resource :stamps, only: [:create, :destroy]
     end
+    get "timeline" => "comments#timeline"
     get "search" => "articles#search"
     get "ranking" => "articles#ranking"
     get "mapping" => "articles#mapping"

@@ -27,3 +27,47 @@
   object-fit: cover;
   margin-right: 10px;
 }
+
+.timeline-comment-box {
+  width: 100%;
+  border: 1px solid #ACAAAA;
+  margin-bottom: 20px;
+}
+
+.comment-article-info {
+  display: flex;
+}
+
+.comment-article-info-left {
+  width: 40%;
+}
+
+.comment-article-info-left img {
+  width: 250px;
+}
+
+.comment-article-info-right {
+  width: 60%;
+  margin-left: 50px;
+}
+
+//.comment-article-info-right p{}
+//.comment-article-info-right h2 {}
+//.comment-article-info-right a {}
+
+.timeline-comment-user-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50px;
+  object-fit: cover;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+.timeline-margin {
+  margin: 0 auto;
+}
+
+.comment-article-info-item {
+  display: flex;
+}

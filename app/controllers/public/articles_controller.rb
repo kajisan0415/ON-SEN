@@ -48,7 +48,7 @@ class Public::ArticlesController < ApplicationController
 
   def search
     @articles = Article.search(params[:keyword]).page(params[:page]).per(8).order(id: "DESC")
-    @keyword = params[:keyword]
+    @keyword = params[:keyword].split(/[[:blank:]]+/)
     render "search"
   end
 

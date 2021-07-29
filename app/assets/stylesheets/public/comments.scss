@@ -32,10 +32,17 @@
   width: 100%;
   border: 1px solid #ACAAAA;
   margin-bottom: 20px;
+  box-shadow: 0 0 2rem rgba(0,0,0,0.5);
+}
+
+.timeline-comment-body {
+  margin-left: 20px;
 }
 
 .comment-article-info {
   display: flex;
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
 .comment-article-info-left {
@@ -44,6 +51,7 @@
 
 .comment-article-info-left img {
   width: 250px;
+  height: 190px;
 }
 
 .comment-article-info-right {

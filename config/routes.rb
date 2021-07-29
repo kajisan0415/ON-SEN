@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     get "mapping" => "articles#mapping"
     get "googlemap/:prefecture" => "articles#googlemap", as: "map_prefecture"
   end
-
+ 
   root to: "public/homes#top"
   get "/about" => "public/homes#about"
 end

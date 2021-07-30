@@ -1,4 +1,4 @@
-<% @comments.each do |comment| %>
+<% comments.each do |comment| %>
     <div class="timeline-comment-box">
       <div class="comment-article-info">
         <div class="comment-article-info-left">
@@ -38,7 +38,7 @@
       <div class="timeline-comment-body">
         <p><%= comment.article.name %></p>
         <!--コメントの本文を表示-->
-        <span><%= comment.body %></span>
+        <p><%= comment.body %></p>
       </div>
       <!--コメントを投稿したユーザーのみコメント削除可能-->
       <% if comment.user == current_user %>

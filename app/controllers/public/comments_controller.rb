@@ -2,7 +2,7 @@ class Public::CommentsController < ApplicationController
   before_action :authenticate_user!, only: [:destroy, :create]
 
   def timeline
-    @comments = Comment.page(params[:page]).order(id: "DESC")
+    @comments = Comment.page(params[:page]).order(id: "DESC").per(5)
   end
 
   def create

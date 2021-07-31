@@ -53,13 +53,15 @@ $(function(){
   });
 });
 
-$(document).on('turbolinks:load', function() {
-  $('.jscroll').jscroll({
-    // 無限に追加する要素は、どこに入れる？
-    contentSelector: '.jscroll', 
-    // 次のページにいくためのリンクの場所は？ ＞aタグの指定
-    nextSelector: 'a.next',
-    // 読み込み中の表示はどうする？
-    loadingHtml: '読み込み中'
-  });
+$(window).on('scroll', function() {
+    scrollHeight = $(document).height();
+    scrollPosition = $(window).height() + $(window).scrollTop();
+    if ( (scrollHeight - scrollPosition) / scrollHeight <= 0.05) {
+          $('.jscroll').jscroll({
+            contentSelector: '.scroll-list',
+            nextSelector: 'span.next:last a',
+            loadingHtml: '読み込み中'
+          });
+    }
 });
+

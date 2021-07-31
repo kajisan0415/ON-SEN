@@ -1,10 +1,6 @@
 class Public::CommentsController < ApplicationController
   before_action :authenticate_user!, only: [:destroy, :create]
 
-  def timeline
-    @comments = Comment.page(params[:page]).order(id: "DESC").per(8)
-  end
-
   def create
     article = Article.find(params[:article_id])
     comment = current_user.comments.new(comment_params)
@@ -17,6 +13,11 @@ class Public::CommentsController < ApplicationController
     Comment.find_by(id: params[:id], article_id: params[:article_id]).destroy
     redirect_back(fallback_location: root_path)
   end
+  
+  def timeline
+    @comments = Comment.page(params[:page]).order(id: "DESC").per(5)
+  end
+
 
   private
 

@@ -34,4 +34,9 @@ Rails.application.routes.draw do
 
   root to: "public/homes#top"
   get "/about" => "public/homes#about"
+  
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'public/users/sessions#new_guest'
+  end
+  
 end
